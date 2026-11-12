@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# /app/ only forwards old links to /board/
+Disallow: /app/
+
+Sitemap: https://www.sitewhiteboard.com/sitemap.xml

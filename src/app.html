@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>[[title]]</title>
+<meta name="description" content="[[desc]]">
+<meta name="theme-color" content="#1f5fd1">
+<meta property="og:site_name" content="SiteWhiteboard"><meta property="og:title" content="[[title]]"><meta property="og:description" content="[[desc]]"><meta property="og:type" content="website"><meta property="og:url" content="[[canonical]]">
+<link rel="canonical" href="[[canonical]]">
+[[alternates]]
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Readex+Pro:wght@400;600&family=Shantell+Sans:wght@500&display=swap">
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<main id="wrap">
+  <canvas id="cv" aria-label="Whiteboard"></canvas>
+  <textarea id="ed" hidden maxlength="2000" dir="auto" aria-label="Text" spellcheck="false"></textarea>
+  <div id="selbar" class="float" hidden>
+    <button id="dup" data-i="dup"><span data-t="dup"></span></button>
+    <button id="front" data-i="front"><span data-t="front"></span></button>
+    <button id="del" data-i="trash"><span data-t="del"></span></button>
+  </div>
+  <div id="zoom" class="float">
+    <button class="ib" id="undo" data-i="undo" data-tt="undo"></button>
+    <button class="ib" id="redo" data-i="redo" data-tt="redo"></button>
+    <i class="sep"></i>
+    <button class="zb" id="zout" data-tt="zoomOut">−</button>
+    <button id="zfit" data-tt="fit">100%</button>
+    <button class="zb" id="zin" data-tt="zoomIn">+</button>
+  </div>
+  <div id="toast" class="float" role="status" hidden></div>
+  <div id="boardsPop" class="float pop" hidden>
+    <h2 data-t="boardsTitle"></h2>
+    <p data-t="boardsNote"></p>
+    <ul id="blist"></ul>
+    <div class="row">
+      <button class="btn" id="bnew" data-t="newBoard"></button>
+      <button class="btn" id="bbackup" data-t="backup"></button>
+      <button class="btn" id="brestore" data-t="restore"></button>
+    </div>
+    <input type="file" id="bfile" accept="application/json,.json" hidden>
+  </div>
+  <div id="proPop" class="float pop" hidden>
+    <h2 data-t="proTitle"></h2>
+    <ul class="ticks"><li data-t="pro1"></li><li data-t="pro2"></li><li data-t="pro3"></li><li data-t="pro4"></li></ul>
+    <p id="proActive" data-t="proActive" hidden></p>
+    <a class="pill" id="buy" target="_blank" rel="noopener" hidden></a>
+    <p id="soon" data-t="proSoon" hidden></p>
+    <div id="keyBox">
+      <label for="key" data-t="haveKey"></label>
+      <div class="row"><input id="key" autocomplete="off" spellcheck="false"><button class="btn" id="act" data-t="activate"></button></div>
+    </div>
+    <p id="keymsg" role="status"></p>
+    <div class="row"><button class="btn" id="proClose" data-t="close"></button><button class="btn" id="proOff" data-t="proOff" hidden></button></div>
+  </div>
+  <div id="userPop" class="float pop end" hidden>
+    <button class="me" id="meName"><span class="av"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0z"/></svg></span><span class="who"><b id="meTxt"></b><small data-t="role"></small></span></button>
+    <label class="sw"><span data-t="grid"></span><input type="checkbox" id="gridT"><i></i></label>
+  </div>
+  <div id="sharePop" class="float pop end" hidden>
+    <h2 data-t="share"></h2>
+    <p data-t="shareNote"></p>
+    <div class="row"><button class="btn primary" id="shImg" data-t="shareImg"></button><button class="btn" id="shDl" data-t="download"></button></div>
+  </div>
+</main>
+<header class="bar">
+  <div class="island">
+    <a class="brand" id="home" href="/" aria-label="SiteWhiteboard"><i class="logo"></i><b data-t="brand">SiteWhiteboard</b></a>
+    <button class="bname" id="bname" data-tt="boards"><span id="bnameTxt"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
+  </div>
+  <div class="island">
+    <div class="langdd"><button class="langbtn" id="lang" data-tt="language" aria-haspopup="true" aria-expanded="false"><i class="flag" id="langFlag" aria-hidden="true"></i><span id="langTxt"></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button><div class="menu float" id="langMenu" hidden><button data-l="en" lang="en"><span>English</span><b>EN</b></button><button data-l="fr" lang="fr"><span>Français</span><b>FR</b></button><button data-l="ar" lang="ar"><span>العربية</span><b>عربي</b></button></div></div>
+    <button class="ib" id="export" data-i="export" data-tt="export"></button>
+    <button class="userbtn" id="user" data-tt="account"><span class="av"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0z"/></svg></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
+    <button class="sharebtn" id="share" data-i="share"><span data-t="share"></span></button>
+    <button class="pill" id="pro"></button>
+  </div>
+</header>
+<nav class="tools island" aria-label="Tools">
+  <div id="kinds" class="float" hidden>
+    <button class="tool" data-kind="rect" data-i="rect" data-tt="rect"></button>
+    <button class="tool" data-kind="ellipse" data-i="ellipse" data-tt="ellipse"></button>
+    <button class="tool" data-kind="tri" data-i="tri" data-tt="tri"></button>
+    <button class="tool" data-kind="diamond" data-i="diamond" data-tt="diamond"></button>
+  </div>
+  <button class="tool" data-tool="select" data-i="select" data-tt="select" data-k="V"></button>
+  <button class="tool" data-tool="hand" data-i="hand" data-tt="hand" data-k="H"></button>
+  <i class="sep"></i>
+  <button class="tool" data-tool="pen" data-i="pen" data-tt="pen" data-k="P"></button>
+  <button class="tool" data-tool="eraser" data-i="eraser" data-tt="eraser" data-k="E"></button>
+  <button class="tool" data-tool="sticky" data-i="sticky" data-tt="sticky" data-k="N"></button>
+  <button class="tool" data-tool="text" data-i="text" data-tt="text" data-k="T"></button>
+  <button class="tool" data-tool="shape" data-i="rect" id="shapeBtn" data-tt="shape" data-k="S"></button>
+  <button class="tool" data-tool="arrow" data-i="arrow" data-tt="arrow" data-k="L"></button>
+</nav>
+<div class="styles island" role="group">
+  <div id="caps" class="caps"></div>
+  <button class="more" id="qsColor" data-tt="moreColors" aria-haspopup="true" aria-expanded="false"><i></i></button>
+  <div id="palPop" class="float pal" hidden>
+    <div class="pal-h"><span data-t="thickness"></span><output id="sizeOut"></output></div>
+    <input type="range" id="sizeIn" min="1" max="40" step="1">
+    <div class="pal-h"><span data-t="colors"></span></div>
+    <div id="swatches" class="swatches" role="listbox"></div>
+    <input type="color" id="pickIn" hidden>
+  </div>
+</div>
+<script src="/assets/config.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>
