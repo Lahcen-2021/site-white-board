@@ -54,9 +54,9 @@ ar:{select:'تحديد وتحريك (V)',hand:'التنقل في اللوحة (H
  wTitle:'مرحبًا بك في SiteWhiteboard',w1:'اختر قلمًا من الأسفل وارسم في أي مكان',w2:'بإصبعين، أو بأداة اليد، حرّك اللوحة وكبّرها',w3:'بأداة التحديد، انقر مرتين لورقة جديدة. احذف هذه الأوراق متى شئت.',wIdea:'فكرة',wPlan:'خطة'}
 };
 const TX={
-en:{moreColors:'More colours and thickness',thickness:'Thickness',colors:'Colours',custom:'Custom colour',brand:'SiteWhiteboard',language:'Change language',account:'You',share:'Share board',shareNote:'Boards stay on this device, so there is no live link. Send a picture of the board instead.',shareImg:'Share as image',download:'Download PNG',copied:'Image copied. Paste it where you want.',guest:'Guest',you:'You',role:'Owner · this device',grid:'Show grid',namePrompt:'Your name'},
-fr:{moreColors:'Plus de couleurs et épaisseur',thickness:'Épaisseur',colors:'Couleurs',custom:'Couleur personnalisée',brand:'SiteTableauBlanc',language:'Changer de langue',account:'Vous',share:'Partager',shareNote:'Les tableaux restent sur cet appareil : il n’y a pas de lien en direct. Envoyez plutôt une image du tableau.',shareImg:'Partager l’image',download:'Télécharger en PNG',copied:'Image copiée. Collez-la où vous voulez.',guest:'Invité',you:'Vous',role:'Propriétaire · cet appareil',grid:'Afficher la grille',namePrompt:'Votre nom'},
-ar:{moreColors:'ألوان أخرى والسماكة',thickness:'السماكة',colors:'الألوان',custom:'لون مخصص',brand:'موقع اللوحة البيضاء',language:'تغيير اللغة',account:'أنت',share:'مشاركة اللوحة',shareNote:'اللوحات تبقى على هذا الجهاز، لذلك لا يوجد رابط مباشر. أرسل صورة للوحة بدلًا من ذلك.',shareImg:'مشاركة كصورة',download:'تنزيل PNG',copied:'تم نسخ الصورة. الصقها حيث تشاء.',guest:'ضيف',you:'أنت',role:'المالك · هذا الجهاز',grid:'إظهار الشبكة',namePrompt:'اسمك'}
+en:{insert:'Insert image or project',insImage:'Image',insProject:'Whiteboard project',saveProject:'Save as project',imgBad:'This image could not be opened.',projBad:'This file is not a whiteboard project.',projAdded:'Project added: {n} items',projSaved:'Project saved',moreColors:'More colours and thickness',thickness:'Thickness',colors:'Colours',custom:'Custom colour',brand:'SiteWhiteboard',language:'Change language',account:'You',share:'Share board',shareNote:'Boards stay on this device, so there is no live link. Send a picture of the board instead.',shareImg:'Share as image',download:'Download PNG',copied:'Image copied. Paste it where you want.',guest:'Guest',you:'You',role:'Owner · this device',grid:'Show grid',namePrompt:'Your name'},
+fr:{insert:'Insérer une image ou un projet',insImage:'Image',insProject:'Projet de tableau blanc',saveProject:'Enregistrer le projet',imgBad:'Impossible d’ouvrir cette image.',projBad:'Ce fichier n’est pas un projet de tableau blanc.',projAdded:'Projet ajouté : {n} éléments',projSaved:'Projet enregistré',moreColors:'Plus de couleurs et épaisseur',thickness:'Épaisseur',colors:'Couleurs',custom:'Couleur personnalisée',brand:'SiteTableauBlanc',language:'Changer de langue',account:'Vous',share:'Partager',shareNote:'Les tableaux restent sur cet appareil : il n’y a pas de lien en direct. Envoyez plutôt une image du tableau.',shareImg:'Partager l’image',download:'Télécharger en PNG',copied:'Image copiée. Collez-la où vous voulez.',guest:'Invité',you:'Vous',role:'Propriétaire · cet appareil',grid:'Afficher la grille',namePrompt:'Votre nom'},
+ar:{insert:'إدراج صورة أو مشروع',insImage:'صورة',insProject:'مشروع سبورة',saveProject:'حفظ كمشروع',imgBad:'تعذّر فتح هذه الصورة.',projBad:'هذا الملف ليس مشروع سبورة.',projAdded:'تمت إضافة المشروع: {n} عناصر',projSaved:'تم حفظ المشروع',moreColors:'ألوان أخرى والسماكة',thickness:'السماكة',colors:'الألوان',custom:'لون مخصص',brand:'موقع اللوحة البيضاء',language:'تغيير اللغة',account:'أنت',share:'مشاركة اللوحة',shareNote:'اللوحات تبقى على هذا الجهاز، لذلك لا يوجد رابط مباشر. أرسل صورة للوحة بدلًا من ذلك.',shareImg:'مشاركة كصورة',download:'تنزيل PNG',copied:'تم نسخ الصورة. الصقها حيث تشاء.',guest:'ضيف',you:'أنت',role:'المالك · هذا الجهاز',grid:'إظهار الشبكة',namePrompt:'اسمك'}
 };
 for(const k in TX)Object.assign(T[k],TX[k]);
 const FLAG={en:'<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice"><rect width="60" height="30" fill="#012169"/><path d="M0 0L60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>',fr:'<svg viewBox="0 0 3 2" preserveAspectRatio="none"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>',ar:'<svg viewBox="0 0 30 20" preserveAspectRatio="xMidYMid slice"><rect width="30" height="20" fill="#C1272D"/><path d="M15 5L17.94 14.05L10.24 8.45H19.76L12.06 14.05Z" fill="none" stroke="#006233" stroke-width="1.1" stroke-linejoin="round"/></svg>'};
@@ -88,7 +88,8 @@ const colOf=c=>isHex(c)?c:(P.m[c]||P.m.ink);            /* line colour */
 const paperOf=c=>isHex(c)?c:(P.p[c]||P.p.amber);        /* sticky / shape fill */
 const inkOn=c=>isHex(c)?(lum(c)<.32?'#ffffff':'#1b2327'):P.note; /* readable text on a note */
 const textPx=s=>clamp(Math.round(11+2.4*s),14,96);      /* thickness 3/6/12 -> 18/26/40 like before */
-const TYPES=['pen','rect','ellipse','tri','diamond','line','sticky','text'];
+const TYPES=['pen','rect','ellipse','tri','diamond','line','sticky','text','img'];
+const IMG_SRC=/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/;
 const HAND='"Shantell Sans","Readex Pro","Comic Sans MS","Segoe Print",cursive';
 const ICON={
  select:'M5 3l14 7-6 2-2 6z',
@@ -101,7 +102,7 @@ const ICON={
  arrow:'M5 19L19 5M10 5h9v9',
  undo:'M8 6L3 11l5 5M3 11h11a5 5 0 010 10h-3',redo:'M16 6l5 5-5 5M21 11H10a5 5 0 000 10h3',
  export:'M12 4v11M7 10l5 5 5-5M5 20h14',globe:'M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18',share:'M12 15V4M8 8l4-4 4 4M5 13v6h14v-6',
- dup:'M8 8h11v11H8zM5 16V5h11',front:'M12 20V7M6 13l6-6 6 6M5 3h14',trash:'M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13'
+ dup:'M8 8h11v11H8zM5 16V5h11',insert:'M4 6h9M4 18V6M4 18h16V11M17 3v6M14 6h6M8 14l2.5-3 2.5 3 1.5-1.5L17 15',image:'M4 5h16v14H4zM4 16l5-5 4 4 2.5-2.5L20 17M15 9.5a1 1 0 100-.01',project:'M4 7V5h6l2 2h8v12H4zM4 7h16',front:'M12 20V7M6 13l6-6 6 6M5 3h14',trash:'M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13'
 };
 const svg=n=>'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+ICON[n]+'"/></svg>';
 $$('[data-i]').forEach(b=>b.insertAdjacentHTML('afterbegin',svg(b.dataset.i)));
@@ -211,7 +212,16 @@ function drawText(c,it,col,al){
   for(const s of L.lines){c.fillText(s,x,y);y+=lh}
   c.direction='ltr';
 }
+/* pictures are decoded once and reused */
+const IMGS=new Map();
+function imgOf(src){let im=IMGS.get(src);if(!im){im=new Image();im.onload=dirty;im.src=src;IMGS.set(src,im)}return im}
 function drawItem(c,it,k){
+  if(it.t==='img'){
+    const im=imgOf(it.src);
+    if(im.complete&&im.naturalWidth)c.drawImage(im,it.x,it.y,it.w,it.h);
+    else{c.fillStyle=P.p.ink;c.fillRect(it.x,it.y,it.w,it.h)}
+    return;
+  }
   const col=colOf(it.c),pap=paperOf(it.c),hide=editing&&editing.id===it.id;
   c.lineCap='round';c.lineJoin='round';
   if(it.t==='pen'){c.strokeStyle=col;c.lineWidth=it.s||4;penPath(c,it.x,it.y,it.p);c.stroke();return}
@@ -278,6 +288,7 @@ function clean(d){
   if(!d||typeof d!=='object'||typeof d.id!=='string'||TYPES.indexOf(d.t)<0||!isFinite(d.x)||!isFinite(d.y))return null;
   if(d.t==='pen'&&(!Array.isArray(d.p)||d.p.length<2))return null;
   if(d.t==='line'&&(!isFinite(d.x2)||!isFinite(d.y2)))return null;
+  if(d.t==='img'&&(typeof d.src!=='string'||!IMG_SRC.test(d.src)||!(d.w>0)||!(d.h>0)))return null;
   const o=Object.assign({},d,{w:isFinite(d.w)?+d.w:0,h:isFinite(d.h)?+d.h:0,z:isFinite(d.z)?+d.z:0});
   if(o.tx!=null)o.tx=String(o.tx).slice(0,2000);
   if(KEYS.indexOf(o.c)<0&&!isHex(o.c))o.c='ink';
@@ -459,8 +470,8 @@ function eraseAt(w){const it=hit(w);if(it){g.del.set(it.id,it);items.delete(it.i
 cv.addEventListener('pointerdown',e=>{
   if(e.button===2)return;
   /* a tap that closes an open menu only closes it: it does not also draw */
-  const menuOpen=[...$$('.pop'),$('#palPop'),$('#langMenu')].some(m=>m&&!m.hidden);
-  if(menuOpen&&!editing){closePops();showPal(false);showLangMenu(false);return}
+  const menuOpen=[...$$('.pop'),$('#palPop'),$('#langMenu'),$('#insertMenu')].some(m=>m&&!m.hidden);
+  if(menuOpen&&!editing){closePops();showPal(false);showLangMenu(false);showInsert(false);return}
   const p=pos(e);pointers.set(e.pointerId,p);try{cv.setPointerCapture(e.pointerId)}catch(_){}
   if(pointers.size===2){cancelGesture();pinchStart();return}
   if(pointers.size>2)return;
@@ -507,7 +518,8 @@ cv.addEventListener('pointermove',e=>{
   }
   if(g.k==='handle'){
     g.moved=true;const o=[...g.orig.values()][0];let n;
-    if(g.n==='se'){const min=o.t==='sticky'?80:24;n=Object.assign({},o,{w:Math.max(min,o.w+dx),h:Math.max(min,o.h+dy)});if(o.t==='text'){n.w=Math.max(60,o.w+dx);n.h=textH(n)}}
+    if(g.n==='se'&&o.t==='img'){const r=o.h/o.w,nw=Math.max(24,o.w+Math.max(dx,dy/r));n=Object.assign({},o,{w:nw,h:nw*r})}
+    else if(g.n==='se'){const min=o.t==='sticky'?80:24;n=Object.assign({},o,{w:Math.max(min,o.w+dx),h:Math.max(min,o.h+dy)});if(o.t==='text'){n.w=Math.max(60,o.w+dx);n.h=textH(n)}}
     else{const en=ends(o),t=hit(w,{box:true});n=Object.assign({},o,{x:en.a.x,y:en.a.y,x2:en.b.x,y2:en.b.y});
       if(g.n==='p1'){n.x=w.x;n.y=w.y;n.a=t&&t.id!==o.b?t.id:''}else{n.x2=w.x;n.y2=w.y;n.b=t&&t.id!==o.a?t.id:''}}
     items.set(o.id,n);dirty();return;
@@ -674,6 +686,105 @@ window.addEventListener('keydown',e=>{
 window.addEventListener('keyup',e=>{if(e.code==='Space')spaceDown=false});
 
 /* ---------- export ---------- */
+/* ---------- insert: images and whiteboard projects ---------- */
+const insertMenu=$('#insertMenu');
+function showInsert(open){insertMenu.hidden=!open;$('#insertBtn').setAttribute('aria-expanded',String(open))}
+$('#insertBtn').addEventListener('click',e=>{e.stopPropagation();showInsert(insertMenu.hidden)});
+document.addEventListener('click',e=>{if(!insertMenu.hidden&&!e.target.closest('#insertMenu'))showInsert(false)});
+$('#insImg').addEventListener('click',()=>{showInsert(false);$('#imgFile').click()});
+$('#insProj').addEventListener('click',()=>{showInsert(false);$('#projFile').click()});
+$('#imgFile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)insertImage(f)});
+$('#projFile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)insertProject(f)});
+
+const viewCenter=()=>toW({x:W/2,y:H/2});
+function addItems(list,keepTool){
+  if(!list.length)return;
+  const b={},a={};for(const it of list){b[it.id]=null;a[it.id]=it}
+  commit(b,a);sel.clear();list.forEach(it=>sel.add(it.id));
+  if(!keepTool)setTool('select');else{ui();dirty()}
+}
+/* shrink big photos so boards stay small enough for the browser's storage */
+function shrinkImage(file){
+  return new Promise((res,rej)=>{
+    const url=URL.createObjectURL(file),im=new Image();
+    im.onload=()=>{
+      URL.revokeObjectURL(url);
+      let w=im.naturalWidth,h=im.naturalHeight;if(!w||!h)return rej();
+      const tryAt=max=>{
+        const sc=Math.min(1,max/Math.max(w,h)),cw=Math.max(1,Math.round(w*sc)),ch=Math.max(1,Math.round(h*sc));
+        const cvs=document.createElement('canvas');cvs.width=cw;cvs.height=ch;const x=cvs.getContext('2d');
+        if(file.type!=='image/png'&&file.type!=='image/gif'&&file.type!=='image/webp'){x.fillStyle='#fff';x.fillRect(0,0,cw,ch)}
+        x.drawImage(im,0,0,cw,ch);
+        let d=cvs.toDataURL('image/webp',.82);
+        if(d.indexOf('data:image/webp')!==0)d=file.type==='image/png'||file.type==='image/gif'?cvs.toDataURL('image/png'):cvs.toDataURL('image/jpeg',.82);
+        return{d,cw,ch};
+      };
+      let r=tryAt(1600);if(r.d.length>1.4e6)r=tryAt(1000);if(r.d.length>1.4e6)r=tryAt(700);
+      res({src:r.d,w:w,h:h});
+    };
+    im.onerror=()=>{URL.revokeObjectURL(url);rej()};
+    im.src=url;
+  });
+}
+async function insertImage(file,at){
+  if(!/^image\/(png|jpeg|webp|gif)$/.test(file.type)){toast(tr('imgBad'));return}
+  let r;try{r=await shrinkImage(file)}catch(e){toast(tr('imgBad'));return}
+  const k=view.k,maxW=W*.5/k,maxH=H*.5/k,sc=Math.min(1,maxW/r.w,maxH/r.h),w=Math.round(r.w*sc),h=Math.round(r.h*sc);
+  const p=at||viewCenter();
+  addItems([{id:uid(),t:'img',x:Math.round(p.x-w/2),y:Math.round(p.y-h/2),w:w,h:h,src:r.src,c:'ink',s:4,z:Date.now()}]);
+}
+/* a project file is one board saved with "Save as project" (older backup files work too) */
+async function insertProject(file,at){
+  let list=null;
+  try{
+    const j=JSON.parse(await file.text());
+    if(j&&Array.isArray(j.items))list=j.items;
+    else if(j&&Array.isArray(j.boards))list=[].concat(...j.boards.map(b=>Array.isArray(b&&b.items)?b.items:[]));
+    else if(Array.isArray(j))list=j;
+  }catch(e){}
+  const its=(list||[]).map(clean).filter(Boolean);
+  if(!its.length){toast(tr('projBad'));return}
+  its.sort((p,q)=>p.z-q.z);
+  const ids=new Map();its.forEach(it=>ids.set(it.id,uid()));
+  let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
+  for(const it of its){const b=bbox(it);x0=Math.min(x0,b.x);y0=Math.min(y0,b.y);x1=Math.max(x1,b.x+b.w);y1=Math.max(y1,b.y+b.h)}
+  const p=at||viewCenter(),dx=Math.round(p.x-(x0+x1)/2),dy=Math.round(p.y-(y0+y1)/2),z=Date.now();
+  const out=its.map((it,i)=>{
+    const o=Object.assign({},it,{id:ids.get(it.id),x:it.x+dx,y:it.y+dy,z:z+i});
+    if(o.t==='line'){o.x2=it.x2+dx;o.y2=it.y2+dy;o.a=ids.get(it.a)||'';o.b=ids.get(it.b)||''}
+    return o;
+  });
+  addItems(out);fit();toast(tr('projAdded',{n:out.length}));
+}
+$('#bsave').addEventListener('click',()=>{
+  if(saveT)saveNow();
+  const name=(meta()||{}).name||'board';
+  const out={app:'sitewhiteboard',v:1,kind:'board',name:name,items:[...items.values()]};
+  const file=name.replace(/[\\/:*?"<>|]+/g,' ').trim().slice(0,60)||'board';
+  download(new Blob([JSON.stringify(out)],{type:'application/json'}),file+'.json');
+  toast(tr('projSaved'));
+});
+/* paste a picture (Ctrl+V) */
+window.addEventListener('paste',e=>{
+  if(editing||/^(INPUT|TEXTAREA)$/.test((e.target&&e.target.tagName)||''))return;
+  const f=[...(e.clipboardData&&e.clipboardData.items||[])].find(i=>i.kind==='file'&&/^image\//.test(i.type));
+  if(f){e.preventDefault();insertImage(f.getAsFile())}
+});
+/* drag a picture or a project file onto the board */
+let dragDepth=0;
+const hasFiles=e=>e.dataTransfer&&[...e.dataTransfer.types].indexOf('Files')>=0;
+wrap.addEventListener('dragenter',e=>{if(!hasFiles(e))return;e.preventDefault();dragDepth++;wrap.classList.add('dropping')});
+wrap.addEventListener('dragover',e=>{if(hasFiles(e)){e.preventDefault();e.dataTransfer.dropEffect='copy'}});
+wrap.addEventListener('dragleave',()=>{if(--dragDepth<=0){dragDepth=0;wrap.classList.remove('dropping')}});
+wrap.addEventListener('drop',e=>{
+  if(!hasFiles(e))return;e.preventDefault();dragDepth=0;wrap.classList.remove('dropping');
+  const at=toW(pos(e));
+  for(const f of e.dataTransfer.files){
+    if(/^image\//.test(f.type)){insertImage(f,at);break}
+    if(/\.json$/i.test(f.name)||f.type==='application/json'){insertProject(f,at);break}
+  }
+});
+
 function exportBlob(cb){
   closeEditor();
   if(!items.size){toast(tr('nothing'));return}

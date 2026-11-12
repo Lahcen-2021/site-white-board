@@ -12,7 +12,7 @@
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Readex+Pro:wght@400;600&family=Shantell+Sans:wght@500&display=swap">
-<link rel="stylesheet" href="/assets/app.css?v=84742116">
+<link rel="stylesheet" href="/assets/app.css?v=cdd58690">
 </head>
 <body>
 <main id="wrap">
@@ -38,6 +38,7 @@
     <ul id="blist"></ul>
     <div class="row">
       <button class="btn" id="bnew" data-t="newBoard"></button>
+      <button class="btn" id="bsave" data-t="saveProject"></button>
       <button class="btn" id="bbackup" data-t="backup"></button>
       <button class="btn" id="brestore" data-t="restore"></button>
     </div>
@@ -95,6 +96,14 @@
   <button class="tool" data-tool="text" data-i="text" data-tt="text" data-k="T"></button>
   <button class="tool" data-tool="shape" data-i="rect" id="shapeBtn" data-tt="shape" data-k="S"></button>
   <button class="tool" data-tool="arrow" data-i="arrow" data-tt="arrow" data-k="L"></button>
+  <i class="sep"></i>
+  <button class="tool" id="insertBtn" data-i="insert" data-tt="insert" aria-haspopup="true" aria-expanded="false"></button>
+  <div id="insertMenu" class="float insmenu" hidden>
+    <button id="insImg" data-i="image"><span data-t="insImage"></span></button>
+    <button id="insProj" data-i="project"><span data-t="insProject"></span></button>
+  </div>
+  <input type="file" id="imgFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input type="file" id="projFile" accept=".json,application/json" hidden>
 </nav>
 <div class="styles island" role="group">
   <div id="caps" class="caps"></div>
@@ -107,7 +116,7 @@
     <input type="color" id="pickIn" hidden>
   </div>
 </div>
-<script src="/assets/config.js?v=84742116"></script>
-<script src="/assets/app.js?v=84742116"></script>
+<script src="/assets/config.js?v=cdd58690"></script>
+<script src="/assets/app.js?v=cdd58690"></script>
 </body>
 </html>

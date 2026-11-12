@@ -38,6 +38,7 @@
     <ul id="blist"></ul>
     <div class="row">
       <button class="btn" id="bnew" data-t="newBoard"></button>
+      <button class="btn" id="bsave" data-t="saveProject"></button>
       <button class="btn" id="bbackup" data-t="backup"></button>
       <button class="btn" id="brestore" data-t="restore"></button>
     </div>
@@ -95,6 +96,14 @@
   <button class="tool" data-tool="text" data-i="text" data-tt="text" data-k="T"></button>
   <button class="tool" data-tool="shape" data-i="rect" id="shapeBtn" data-tt="shape" data-k="S"></button>
   <button class="tool" data-tool="arrow" data-i="arrow" data-tt="arrow" data-k="L"></button>
+  <i class="sep"></i>
+  <button class="tool" id="insertBtn" data-i="insert" data-tt="insert" aria-haspopup="true" aria-expanded="false"></button>
+  <div id="insertMenu" class="float insmenu" hidden>
+    <button id="insImg" data-i="image"><span data-t="insImage"></span></button>
+    <button id="insProj" data-i="project"><span data-t="insProject"></span></button>
+  </div>
+  <input type="file" id="imgFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+  <input type="file" id="projFile" accept=".json,application/json" hidden>
 </nav>
 <div class="styles island" role="group">
   <div id="caps" class="caps"></div>

@@ -102,6 +102,11 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 .tool:hover{background:var(--tint)}
 .tool[aria-pressed="true"]{background:var(--tint);color:var(--accent)}
 .tool[data-k]::after{content:attr(data-k);position:absolute;right:4px;bottom:1px;font-size:9px;font-weight:500;color:var(--muted);opacity:.8}
+.insmenu{top:calc(100% + 8px);right:0;display:flex;flex-direction:column;gap:2px;padding:6px;min-width:210px}
+.insmenu button{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:9px;font-size:14px;white-space:nowrap;text-align:start}
+.insmenu button:hover{background:var(--tint)}
+.insmenu svg{width:20px;height:20px}
+#wrap.dropping::after{content:"";position:absolute;inset:10px;border:2.5px dashed var(--accent);border-radius:16px;background:color-mix(in srgb,var(--accent) 7%,transparent);pointer-events:none;z-index:2}
 #kinds{top:calc(100% + 8px);left:50%;transform:translateX(-50%);display:flex;gap:2px;padding:3px}
 
 /* colours and thickness: left edge on wide screens */
@@ -167,6 +172,7 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
 @media (max-width:1240px){
   .tools{top:auto;bottom:max(10px,env(safe-area-inset-bottom,0px))}
   #kinds{top:auto;bottom:calc(100% + 66px)}
+  .insmenu{top:auto;bottom:calc(100% + 66px)}
   .styles{top:auto;bottom:calc(max(10px,env(safe-area-inset-bottom,0px)) + 56px);inset-inline-start:auto;left:50%;transform:translateX(-50%);flex-direction:row;padding:6px}
   .styles{padding:10px 10px 6px;direction:ltr}
   .caps{flex-direction:row;align-items:flex-end;gap:9px;padding:6px 0 0}
@@ -182,6 +188,8 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke
   .pop{max-height:calc(100% - 200px)}
 }
 @media (max-width:640px){.brand b{display:none}#export,.sharebtn span,.userbtn .chev{display:none}.sharebtn{padding:0 10px}.userbtn{padding:0 4px;background:none}.langbtn{padding:0 6px}.bname{max-width:24vw}.bar .island{gap:4px}}
-@media (max-width:380px){.tool{width:36px}.tools .sep{margin:0 2px}.caps{gap:7px}}
+/* 9 tool buttons must fit on a 360px phone */
+@media (max-width:440px){.tools{padding:0 3px;gap:1px}.tool{width:34px;height:38px}.tools .sep{margin:0 1px}.tool[data-k]::after{display:none}}
+@media (max-width:380px){.caps{gap:7px}}
 @media (hover:none){.tool[data-k]::after{display:none}}
 @media (prefers-reduced-motion: reduce){.swatches button,.cap{transition:none}}
