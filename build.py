@@ -277,6 +277,17 @@ ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-
 e = html.escape
 
 
+SITE_CSS = ""
+
+
+def minify_css(css):
+    """Small, safe CSS squeeze: drop comments and extra spaces."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{};,>])\s*", r"\1", css)
+    return css.replace(";}", "}").strip()
+
+
 def prefix(lang):
     return "" if lang == "en" else "/" + lang
 
@@ -309,8 +320,8 @@ def head(a, lang, page, title, desc):
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Readex+Pro:wght@400;600&family=Shantell+Sans:wght@500&display=swap">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Readex+Pro:wght@400;600&family=Shantell+Sans:wght@500&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Readex+Pro:wght@400;600&family=Shantell+Sans:wght@500&display=swap"></noscript>
+<style>{SITE_CSS}</style>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -340,13 +351,13 @@ def foot(a, lang, page="index"):
     return f"""<footer><div class="wrap">
   <div class="fbrand"><a class="brand" href="{home}"><i class="logo"></i>{e(d['brand'])}</a><p>{e(d['small'])}</p>
     <a class="cta small" href="{board(lang)}">{e(d['open'])}</a></div>
-  <nav class="fcol"><h4>{e(d['product'])}</h4><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a></nav>
-  <nav class="fcol"><h4>{e(d['company'])}</h4><a href="{url(lang, 'about')}">{e(d['about'])}</a><a href="{url(lang, 'privacy')}">{e(d['privacy'])}</a><a href="{url(lang, 'terms')}">{e(d['terms'])}</a></nav>
+  <nav class="fcol"><h2 class="fh">{e(d['product'])}</h2><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a></nav>
+  <nav class="fcol"><h2 class="fh">{e(d['company'])}</h2><a href="{url(lang, 'about')}">{e(d['about'])}</a><a href="{url(lang, 'privacy')}">{e(d['privacy'])}</a><a href="{url(lang, 'terms')}">{e(d['terms'])}</a></nav>
   <div class="legal"><span>© 2026 {e(d['brand'])}. {e(d['rights'])}</span><span dir="ltr">{e(host)}</span></div>
 </div></footer>
 <a class="totop" id="totop" href="#" aria-label="{e(d['top'])}" title="{e(d['top'])}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
-<script src="/assets/config.js"></script>
-<script src="/assets/site.js"></script>
+<script src="/assets/config.js" defer></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
 """
@@ -506,6 +517,8 @@ def main():
     (DIST / "assets").mkdir(parents=True)
     tokens = (SRC / "tokens.css").read_text(encoding="utf8")
     (DIST / "assets/site.css").write_text(tokens + (SRC / "site.body.css").read_text(encoding="utf8"), encoding="utf8")
+    global SITE_CSS
+    SITE_CSS = minify_css((DIST / "assets/site.css").read_text(encoding="utf8"))
     (DIST / "assets/app.css").write_text(tokens + (SRC / "app.body.css").read_text(encoding="utf8"), encoding="utf8")
     for f in ("app.js", "site.js", "icon.svg"):
         shutil.copy(SRC / f, DIST / "assets" / f)

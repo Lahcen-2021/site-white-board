@@ -276,7 +276,9 @@ function fit(){
   if(!items.size){view.k=1;view.x=W/2;view.y=H/2;dirty();return}
   let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
   for(const it of items.values()){const b=bbox(it);x0=Math.min(x0,b.x);y0=Math.min(y0,b.y);x1=Math.max(x1,b.x+b.w);y1=Math.max(y1,b.y+b.h)}
-  const k=clamp(Math.min(W/(x1-x0+80),H/(y1-y0+80)),.1,1.25);view.k=k;view.x=W/2-(x0+x1)/2*k;view.y=H/2-(y0+y1)/2*k;dirty();
+  /* keep clear of the floating bars: top bar, and on phones/tablets the tools + colours at the bottom */
+  const top=innerWidth<=1240?118:66,bot=innerWidth<=1240?132:66,left=innerWidth>1240?90:0,aw=W-left,ah=Math.max(80,H-top-bot);
+  const k=clamp(Math.min(aw/(x1-x0+60),ah/(y1-y0+60)),.1,1.25);view.k=k;view.x=left+aw/2-(x0+x1)/2*k;view.y=top+ah/2-(y0+y1)/2*k;dirty();
 }
 const pos=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
 const toW=p=>({x:(p.x-view.x)/view.k,y:(p.y-view.y)/view.k});
@@ -304,15 +306,25 @@ function saveNow(){
 }
 function save(){clearTimeout(saveT);saveT=setTimeout(saveNow,300)}
 function welcome(){
-  const z=Date.now();
+  const z=Date.now(),wave=[0,6,20,1,40,6,60,11,80,6,100,1,120,6,140,11,160,6,180,1,200,6,220,11,240,6,260,1,280,6,300,11];
+  if(Math.min(innerWidth,screen.width||innerWidth)<640){
+    return[
+     {id:uid(),t:'text',x:-150,y:-380,w:300,h:70,c:'ink',s:6,tx:tr('wTitle'),z:z},
+     {id:uid(),t:'pen',x:-150,y:-300,w:300,h:12,c:'red',s:3,p:wave,z:z+1},
+     {id:uid(),t:'sticky',x:-90,y:-260,w:180,h:150,c:'amber',s:4,tx:tr('w1'),z:z+2},
+     {id:uid(),t:'sticky',x:-90,y:-90,w:180,h:150,c:'green',s:4,tx:tr('w2'),z:z+3},
+     {id:uid(),t:'sticky',x:-90,y:80,w:180,h:150,c:'violet',s:4,tx:tr('w3'),z:z+4}
+    ];
+  }
   return[
    {id:uid(),t:'text',x:-250,y:-236,w:720,h:52,c:'ink',s:12,tx:tr('wTitle'),z:z},
-   {id:uid(),t:'pen',x:-250,y:-178,w:300,h:12,c:'red',s:3,p:[0,6,20,1,40,6,60,11,80,6,100,1,120,6,140,11,160,6,180,1,200,6,220,11,240,6,260,1,280,6,300,11],z:z+1},
+   {id:uid(),t:'pen',x:-250,y:-178,w:300,h:12,c:'red',s:3,p:wave,z:z+1},
    {id:uid(),t:'sticky',x:-250,y:-140,w:170,h:170,c:'amber',s:4,tx:tr('w1'),z:z+2},
    {id:uid(),t:'sticky',x:-50,y:-140,w:170,h:170,c:'green',s:4,tx:tr('w2'),z:z+3},
    {id:uid(),t:'sticky',x:150,y:-140,w:170,h:170,c:'violet',s:4,tx:tr('w3'),z:z+4}
   ];
 }
+
 function openBoard(id){
   if(saveT)saveNow();closeEditor();
   board=id;items.clear();sel.clear();undo=[];redo=[];g=null;
@@ -596,6 +608,7 @@ function ui(){
   paletteUi();
   $$('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.kind===shape)));
   $('#kinds').hidden=tool!=='shape';
+  document.body.classList.toggle('nocolor',!(['pen','sticky','text','shape','arrow'].indexOf(tool)>=0||(tool==='select'&&sel.size>0)));
   $('#undo').disabled=!undo.length;$('#redo').disabled=!redo.length;
   $('#selbar').hidden=!sel.size||!!editing||tool!=='select';
   cv.style.cursor=cursorFor(tool);
@@ -828,5 +841,11 @@ const want=location.hash.slice(1)||LS.get('fb:last','');
 try{if(location.search||location.hash||location.pathname!==boardPath(lang))history.replaceState(null,'',boardPath(lang))}catch(e){}
 openBoard(index.some(b=>b.id===want)?want:index[0].id);
 new ResizeObserver(resize).observe(wrap);resize();
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{wc.clear();dirty()});
+/* fonts arrive after the first paint: redraw the board text once the handwriting font is in */
+if(document.fonts){
+  const redraw=()=>{wc.clear();dirty();if(editing)placeEditor()};
+  document.fonts.addEventListener('loadingdone',redraw);
+  const want=()=>document.fonts.load(font(20)).then(redraw).catch(()=>{});
+  window.addEventListener('load',want);want();
+}
 })();
