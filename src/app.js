@@ -169,7 +169,7 @@ function bbox(it){
 function dseg(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,l=dx*dx+dy*dy;let t=l?((p.x-a.x)*dx+(p.y-a.y)*dy)/l:0;t=clamp(t,0,1);return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy)}
 function sorted(){return[...items.values()].sort((a,b)=>(a.z-b.z)||(a.id<b.id?-1:1))}
 function hit(w,opt){
-  const tol=10/view.k,L=sorted();
+  const tol=((opt&&opt.tol)||10)/view.k,L=sorted();
   for(let i=L.length-1;i>=0;i--){
     const it=L[i];
     if(opt&&opt.box&&(it.t==='line'||it.t==='pen'))continue;
@@ -247,6 +247,7 @@ function render(){
   ctx.save();ctx.translate(view.x,view.y);ctx.scale(k,k);
   const x0=-view.x/k,y0=-view.y/k,x1=x0+W/k,y1=y0+H/k;
   for(const it of sorted()){const b=bbox(it),m=30;if(b.x>x1+m||b.y>y1+m||b.x+b.w<x0-m||b.y+b.h<y0-m)continue;drawItem(ctx,it,k)}
+  if(g&&g.k==='erase'&&g.trail.length>2){ctx.save();ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=P.muted;ctx.globalAlpha=.28;ctx.lineWidth=g.tol*2/k;penPath(ctx,0,0,g.trail);ctx.stroke();ctx.restore()}
   if(g&&g.k==='pen'){ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=colOf(color);ctx.lineWidth=size;penPath(ctx,0,0,g.pts);ctx.stroke()}
   if(g&&g.k==='make'&&g.it)drawItem(ctx,g.it,k);
   ctx.strokeStyle=P.accent;ctx.lineWidth=1.5/k;
@@ -477,7 +478,19 @@ function pinchMove(){
   const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y),cx=(a[0].x+a[1].x)/2,cy=(a[0].y+a[1].y)/2;
   const k=clamp(pz.k*d/pz.d,.1,5),wx=(pz.cx-pz.x)/pz.k,wy=(pz.cy-pz.y)/pz.k;view.k=k;view.x=cx-wx*k;view.y=cy-wy*k;dirty();
 }
-function eraseAt(w){const it=hit(w);if(it){g.del.set(it.id,it);items.delete(it.id);sel.delete(it.id);dirty()}}
+function eraseAt(w){
+  const it=hit(w,{tol:g.tol});
+  if(it){g.del.set(it.id,it);items.delete(it.id);sel.delete(it.id);dirty()}
+}
+function eraseAlongEnd(gg,w){const keep=g;g=gg;eraseAlong(w);g=keep}
+function eraseAlong(w){
+  const a=g.last||w,d=Math.hypot(w.x-a.x,w.y-a.y),step=Math.max(.5,g.tol*.5)/view.k,n=Math.min(200,Math.ceil(d/step));
+  for(let i=1;i<=n;i++)eraseAt({x:a.x+(w.x-a.x)*i/n,y:a.y+(w.y-a.y)*i/n});
+  if(!n)eraseAt(w);
+  g.last=w;g.trail.push(w.x,w.y);if(g.trail.length>40)g.trail.splice(0,2);dirty();
+}
+/* every position the device recorded since the last event (phones send fewer move events) */
+const allPts=e=>{try{const c=e.getCoalescedEvents&&e.getCoalescedEvents();if(c&&c.length)return c}catch(_){}return[e]};
 
 cv.addEventListener('pointerdown',e=>{
   if(e.button===2)return;
@@ -503,7 +516,7 @@ cv.addEventListener('pointerdown',e=>{
     ui();dirty();return;
   }
   if(tl_==='pen'){g={k:'pen',pts:[w.x,w.y]};dirty();return}
-  if(tl_==='eraser'){g={k:'erase',del:new Map()};eraseAt(w);return}
+  if(tl_==='eraser'){g={k:'erase',del:new Map(),tol:e.pointerType==='touch'?18:e.pointerType==='pen'?12:10,last:null,trail:[w.x,w.y]};eraseAlong(w);return}
   if(tl_==='shape'){g={k:'make',start:w,it:null,kind:shape};return}
   if(tl_==='arrow'){const a=hit(w,{box:true});g={k:'make',start:w,kind:'line',it:null,a:a?a.id:''};return}
   if(tl_==='sticky'||tl_==='text'){g={k:'place',kind:tl_,start:w};return}
@@ -514,8 +527,12 @@ cv.addEventListener('pointermove',e=>{
   if(!g)return;
   const w=toW(p);
   if(g.k==='pan'){view.x=g.ox+p.x-g.sx;view.y=g.oy+p.y-g.sy;dirty();return}
-  if(g.k==='pen'){const n=g.pts.length;if(Math.hypot(w.x-g.pts[n-2],w.y-g.pts[n-1])>=1.5/view.k){g.pts.push(w.x,w.y);dirty()}return}
-  if(g.k==='erase'){eraseAt(w);return}
+  if(g.k==='pen'){
+    let added=false;
+    for(const ce of allPts(e)){const q=toW(pos(ce)),n=g.pts.length;if(Math.hypot(q.x-g.pts[n-2],q.y-g.pts[n-1])>=.75/view.k){g.pts.push(q.x,q.y);added=true}}
+    if(added)dirty();return;
+  }
+  if(g.k==='erase'){for(const ce of allPts(e))eraseAlong(toW(pos(ce)));return}
   if(g.k==='marquee'){g.cur=w;dirty();return}
   const dx=w.x-g.start.x,dy=w.y-g.start.y;
   if(g.k==='move'){
@@ -553,13 +570,14 @@ function endPointer(e,cancelled){
   if(cancelled){cancelGesture();return}
   const p=pos(e),w=toW(p),gg=g;g=null;
   if(gg.k==='pen'){
+    {const n=gg.pts.length;if(Math.hypot(w.x-gg.pts[n-2],w.y-gg.pts[n-1])>=.75/view.k)gg.pts.push(w.x,w.y)}
     const pts=gg.pts;let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
     for(let i=0;i<pts.length;i+=2){x0=Math.min(x0,pts[i]);y0=Math.min(y0,pts[i+1]);x1=Math.max(x1,pts[i]);y1=Math.max(y1,pts[i+1])}
     x0=Math.floor(x0);y0=Math.floor(y0);const rel=[];for(let i=0;i<pts.length;i+=2)rel.push(Math.round((pts[i]-x0)*10)/10,Math.round((pts[i+1]-y0)*10)/10);
     const it={id:uid(),t:'pen',x:x0,y:y0,w:Math.ceil(x1-x0),h:Math.ceil(y1-y0),p:rel,c:color,s:size,z:Date.now()};
     commit({[it.id]:null},{[it.id]:it});return;
   }
-  if(gg.k==='erase'){if(gg.del.size){const b={},a={};for(const [id,it] of gg.del){b[id]=it;a[id]=null}commit(b,a)}return}
+  if(gg.k==='erase'){eraseAlongEnd(gg,w);dirty();if(gg.del.size){const b={},a={};for(const [id,it] of gg.del){b[id]=it;a[id]=null}commit(b,a)}return}
   if(gg.k==='move'){
     if(gg.moved){const b={},a={};for(const [id,o] of gg.orig){b[id]=o;a[id]=items.get(id)}commit(b,a)}
     else if(isDouble(p)){const it=items.get(gg.hitId);if(it&&it.t!=='pen'&&it.t!=='line'){sel.clear();sel.add(it.id);openEditor(it,false)}}
