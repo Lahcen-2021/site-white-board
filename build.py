@@ -13,7 +13,8 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent
 SRC, DIST = ROOT / "src", ROOT / "dist"
 LANGS = ["en", "fr", "ar"]
-UPDATED = {"en": "11 November 2026", "fr": "11 novembre 2026", "ar": "11 نوفمبر 2026"}
+UPDATED = {"en": "20 November 2026", "fr": "20 novembre 2026", "ar": "20 نوفمبر 2026"}
+BLOG_DIR = ROOT / "content" / "blog"
 
 L = {
 "en": dict(
@@ -54,6 +55,9 @@ L = {
              ("Advertising", "We show ads from Google AdSense on our pages. Google and its partners use cookies to show ads based on your visits to this site and other sites. You can turn off personalised ads in Google's Ads Settings (adssettings.google.com), and read how Google uses data at policies.google.com/technologies/partner-sites."),
              ("Payments", "Pro is sold through a third-party payment provider. That provider handles your payment details; we never see your card number. When you activate Pro, your licence key is sent to the provider to check that it is valid."),
              ("Server logs", "Our hosting provider may record technical data such as your IP address and browser type for security and to keep the site running."),
+             ("Cookies", "SiteWhiteboard itself does not set tracking cookies. When ads are shown, Google and its advertising partners may place and read cookies, or use web beacons and similar technologies, to serve and measure ads. Google's use of advertising cookies lets it and its partners show ads based on your visits to this site and other sites on the internet. You can block or delete cookies in your browser settings, and you can opt out of some third-party vendors' personalised ads at aboutads.info/choices."),
+             ("Contact form", "The contact form does not send anything to our servers. It opens your own email app with your message filled in, and you decide whether to send it. When you write to us, we use your email address only to reply."),
+             ("Children", "SiteWhiteboard has no accounts and does not knowingly collect personal information from children. Parents and teachers can let children draw without giving any personal details."),
              ("Contact", "For any privacy question, write to us at")],
   terms_t="Terms of use",
   terms_s=[("Using SiteWhiteboard", "You may use SiteWhiteboard for personal and professional work. Do not use it to break the law or to harm the site or other people."),
@@ -101,6 +105,9 @@ L = {
              ("Publicité", "Nous affichons des annonces Google AdSense sur nos pages. Google et ses partenaires utilisent des cookies pour diffuser des annonces en fonction de vos visites sur ce site et sur d’autres sites. Vous pouvez désactiver les annonces personnalisées dans les paramètres des annonces Google (adssettings.google.com) et lire comment Google utilise les données sur policies.google.com/technologies/partner-sites."),
              ("Paiements", "Pro est vendu par un prestataire de paiement tiers. Ce prestataire traite vos informations de paiement ; nous ne voyons jamais votre numéro de carte. Quand vous activez Pro, votre clé de licence est envoyée au prestataire pour vérifier qu’elle est valide."),
              ("Journaux du serveur", "Notre hébergeur peut enregistrer des données techniques comme votre adresse IP et votre type de navigateur, pour la sécurité et le bon fonctionnement du site."),
+             ("Cookies", "SiteWhiteboard ne dépose pas lui-même de cookies de suivi. Quand des annonces sont affichées, Google et ses partenaires publicitaires peuvent déposer et lire des cookies, ou utiliser des balises web et des technologies similaires, pour diffuser et mesurer les annonces. Les cookies publicitaires de Google lui permettent, ainsi qu’à ses partenaires, d’afficher des annonces en fonction de vos visites sur ce site et sur d’autres sites. Vous pouvez bloquer ou supprimer les cookies dans les réglages de votre navigateur, et refuser certaines annonces personnalisées de fournisseurs tiers sur youronlinechoices.eu."),
+             ("Formulaire de contact", "Le formulaire de contact n’envoie rien à nos serveurs. Il ouvre votre propre messagerie avec votre message déjà rempli, et c’est vous qui décidez de l’envoyer. Quand vous nous écrivez, nous utilisons votre adresse uniquement pour vous répondre."),
+             ("Enfants", "SiteWhiteboard n’a pas de comptes et ne collecte pas sciemment de données personnelles d’enfants. Parents et enseignants peuvent laisser les enfants dessiner sans donner aucune information personnelle."),
              ("Contact", "Pour toute question sur la confidentialité, écrivez-nous à")],
   terms_t="Conditions d’utilisation",
   terms_s=[("Utiliser SiteWhiteboard", "Vous pouvez utiliser SiteWhiteboard pour un usage personnel ou professionnel. Ne l’utilisez pas pour enfreindre la loi ni pour nuire au site ou à autrui."),
@@ -148,6 +155,9 @@ L = {
              ("الإعلانات", "نعرض إعلانات Google AdSense في صفحاتنا. تستخدم Google وشركاؤها ملفات تعريف الارتباط لعرض الإعلانات بناءً على زياراتك لهذا الموقع ولمواقع أخرى. يمكنك إيقاف الإعلانات المخصصة من إعدادات إعلانات Google (adssettings.google.com)، ومعرفة كيف تستخدم Google البيانات على policies.google.com/technologies/partner-sites."),
              ("المدفوعات", "تُباع خطة Pro عبر مزوّد دفع خارجي. هذا المزوّد هو من يعالج بيانات الدفع، ونحن لا نرى رقم بطاقتك أبدًا. عند تفعيل Pro يُرسل مفتاح الترخيص إلى المزوّد للتحقق من صلاحيته."),
              ("سجلات الخادم", "قد يسجّل مزوّد الاستضافة بيانات تقنية مثل عنوان IP ونوع المتصفح لأغراض الأمان وضمان عمل الموقع."),
+             ("ملفات تعريف الارتباط (الكوكيز)", "لا يضع SiteWhiteboard بنفسه ملفات تتبّع. عند عرض الإعلانات، قد تضع Google وشركاؤها الإعلانيون ملفات تعريف الارتباط وتقرؤها، أو تستخدم إشارات الويب وتقنيات مشابهة، لعرض الإعلانات وقياسها. تتيح ملفات Google الإعلانية لها ولشركائها عرض إعلانات بناءً على زياراتك لهذا الموقع ولمواقع أخرى. يمكنك حظر هذه الملفات أو حذفها من إعدادات متصفحك، ورفض بعض الإعلانات المخصصة من مزوّدين خارجيين عبر aboutads.info/choices."),
+             ("نموذج التواصل", "نموذج التواصل لا يرسل أي شيء إلى خوادمنا. هو يفتح تطبيق البريد لديك ورسالتك مكتوبة فيه، وأنت من يقرر إرسالها. عندما تراسلنا نستعمل بريدك الإلكتروني فقط للرد عليك."),
+             ("الأطفال", "لا توجد حسابات في SiteWhiteboard ولا نجمع عن قصد أي بيانات شخصية من الأطفال. يمكن للآباء والمعلمين ترك الأطفال يرسمون دون تقديم أي معلومات شخصية."),
              ("التواصل", "لأي سؤال عن الخصوصية، راسلنا على")],
   terms_t="شروط الاستخدام",
   terms_s=[("استخدام SiteWhiteboard", "يمكنك استخدام SiteWhiteboard لأعمالك الشخصية والمهنية. لا تستخدمه لمخالفة القانون أو للإضرار بالموقع أو بالآخرين."),
@@ -261,10 +271,80 @@ SEO = {
   board_title="سبورة بيضاء أونلاين – ارسم الآن مجانًا | SiteWhiteboard",
   board_desc="ارسم على سبورة بيضاء أونلاين مجانية: أقلام وأوراق لاصقة وأشكال وأسهم. بدون تسجيل، على الهاتف والجهاز اللوحي والحاسوب."),
 }
+# Home page explainer (shown under the live demo), contact page and blog labels
+MORE = {
+"en": dict(
+  what_h="What is an online whiteboard?",
+  what=["An online whiteboard is a drawing surface that opens in your web browser. It works like the whiteboard on a classroom or office wall, except the board never runs out of space and nothing needs wiping. You draw with a mouse, a finger or a stylus, write on sticky notes, add shapes and connect them with arrows. SiteWhiteboard saves every board in your browser while you work, so you can close the tab and pick up where you stopped.",
+        "There is nothing to install and no account to create. Open a board, pick a marker colour and start. Two fingers or the mouse wheel move and zoom the board, and undo takes back any mistake. When the board is done, export it as a PNG image and put it in a slide, a document or a chat. You can also insert photos, screenshots or an earlier board and keep building on it.",
+        "Your boards stay on your own device and are never uploaded to our servers. The flip side is that a board lives on one device: to share it, you export the picture."],
+  who_h="Who uses it",
+  who=[("Teachers", "Explain a lesson step by step on a projector or a shared screen, the way you would at the front of the room, then send the finished board to the class as a picture."),
+       ("Students", "Revise with mind maps, work through maths problems by hand and keep a board for each subject on a laptop or tablet."),
+       ("Companies", "Sketch a process during a video call, sort workshop ideas on sticky notes and turn a messy discussion into a diagram everyone can read.")],
+  contact_t="Contact us", contact_lead="Questions, bug reports or ideas for the whiteboard? Send us a message. We read every one.",
+  f_name="Your name", f_email="Your email", f_topic="Topic", f_topics=["A question", "A bug", "An idea", "Something else"],
+  f_msg="Message", f_send="Open in my email app",
+  f_note="This button opens your email app with the message filled in. If nothing opens, write to us directly at",
+  tips_h="Before you write",
+  tips=[("Reporting a bug?", "Tell us your device and browser (for example iPhone with Safari, or Android with Chrome) and what you did just before the problem."),
+        ("Lost a board?", "Boards are saved in your browser, so we cannot see or recover them. Check that you are on the same device and the same browser you drew on."),
+        ("Have an idea?", "Tell us what you were trying to do. A short example helps us more than a feature name.")],
+  blog="Blog", blog_t="Whiteboard ideas, guides and lessons",
+  blog_lead="Practical guides for teaching, studying, brainstorming and planning on an online whiteboard.",
+  blog_desc="Guides and ideas for using an online whiteboard: teaching, maths, brainstorming, study, mind maps, flowcharts and comparisons of free whiteboard tools.",
+  read="min read", related="Keep reading", try_h="Try it on a board", try_p="Open a free whiteboard and put this guide into practice. No sign-up.",
+  all_posts="All articles"),
+"fr": dict(
+  what_h="Qu’est-ce qu’un tableau blanc en ligne ?",
+  what=["Un tableau blanc en ligne est une surface de dessin qui s’ouvre dans votre navigateur. Il fonctionne comme le tableau blanc d’une salle de classe ou d’un bureau, sauf que la place ne manque jamais et qu’il n’y a rien à effacer à l’éponge. Vous dessinez à la souris, au doigt ou au stylet, écrivez sur des post-it, ajoutez des formes et les reliez par des flèches. SiteWhiteboard enregistre chaque tableau dans votre navigateur pendant que vous travaillez : vous pouvez fermer l’onglet et reprendre plus tard.",
+        "Il n’y a rien à installer et aucun compte à créer. Ouvrez un tableau, choisissez une couleur de marqueur et commencez. Deux doigts ou la molette déplacent et zooment le tableau, et le bouton annuler rattrape toute erreur. Une fois terminé, exportez le tableau en image PNG pour une présentation, un document ou une discussion. Vous pouvez aussi insérer des photos, des captures d’écran ou un ancien tableau pour continuer dessus.",
+        "Vos tableaux restent sur votre appareil et ne sont jamais envoyés sur nos serveurs. En contrepartie, un tableau vit sur un seul appareil : pour le partager, vous exportez l’image."],
+  who_h="Qui l’utilise",
+  who=[("Enseignants", "Expliquez un cours pas à pas sur un vidéoprojecteur ou un écran partagé, comme au tableau de la classe, puis envoyez le tableau terminé aux élèves en image."),
+       ("Élèves et étudiants", "Révisez avec des cartes mentales, résolvez des exercices de maths à la main et gardez un tableau par matière sur ordinateur ou tablette."),
+       ("Entreprises", "Esquissez un processus pendant une visio, triez les idées d’un atelier sur des post-it et transformez une discussion confuse en schéma lisible par tous.")],
+  contact_t="Nous contacter", contact_lead="Une question, un bug ou une idée pour le tableau blanc ? Envoyez-nous un message. Nous les lisons tous.",
+  f_name="Votre nom", f_email="Votre e-mail", f_topic="Sujet", f_topics=["Une question", "Un bug", "Une idée", "Autre chose"],
+  f_msg="Message", f_send="Ouvrir dans ma messagerie",
+  f_note="Ce bouton ouvre votre messagerie avec le message déjà rempli. Si rien ne s’ouvre, écrivez-nous directement à",
+  tips_h="Avant d’écrire",
+  tips=[("Un bug ?", "Indiquez votre appareil et votre navigateur (par exemple iPhone avec Safari, ou Android avec Chrome) et ce que vous faisiez juste avant le problème."),
+        ("Un tableau perdu ?", "Les tableaux sont enregistrés dans votre navigateur : nous ne pouvons ni les voir ni les récupérer. Vérifiez que vous êtes sur le même appareil et le même navigateur."),
+        ("Une idée ?", "Dites-nous ce que vous essayiez de faire. Un exemple concret nous aide plus qu’un nom de fonction.")],
+  blog="Blog", blog_t="Idées, guides et cours pour le tableau blanc",
+  blog_lead="Des guides pratiques (en anglais) pour enseigner, réviser, faire un remue-méninges et planifier sur un tableau blanc en ligne.",
+  blog_desc="Guides et idées pour utiliser un tableau blanc en ligne.",
+  read="min", related="À lire aussi", try_h="Essayez sur un tableau", try_p="Ouvrez un tableau blanc gratuit et mettez ce guide en pratique.",
+  all_posts="Tous les articles"),
+"ar": dict(
+  what_h="ما هي السبورة البيضاء الأونلاين؟",
+  what=["السبورة البيضاء الأونلاين مساحة للرسم تفتح في متصفح الإنترنت. تعمل مثل السبورة المعلّقة في القسم أو المكتب، لكن مساحتها لا تنتهي ولا تحتاج إلى مسح. ترسم بالفأرة أو بإصبعك أو بالقلم، تكتب على أوراق لاصقة، تضيف أشكالًا وتربط بينها بالأسهم. يحفظ SiteWhiteboard كل لوحة في متصفحك أثناء العمل، فيمكنك إغلاق الصفحة والعودة لاحقًا من حيث توقفت.",
+        "لا يوجد ما تثبّته ولا حساب تنشئه. افتح لوحة، اختر لون القلم وابدأ. إصبعان أو عجلة الفأرة يحرّكان اللوحة ويكبّرانها، وزر التراجع يصحّح أي خطأ. عندما تنتهي، صدّر اللوحة كصورة PNG وضعها في عرض تقديمي أو مستند أو محادثة. ويمكنك أيضًا إدراج صور أو لقطات شاشة أو لوحة سابقة ومواصلة العمل عليها.",
+        "لوحاتك تبقى على جهازك ولا تُرفع أبدًا إلى خوادمنا. في المقابل، اللوحة موجودة على جهاز واحد: لمشاركتها تصدّر الصورة."],
+  who_h="من يستعملها",
+  who=[("المعلمون", "اشرح الدرس خطوة بخطوة على جهاز العرض أو شاشة مشتركة كما تفعل أمام القسم، ثم أرسل اللوحة النهائية للتلاميذ كصورة."),
+       ("التلاميذ والطلبة", "راجع بالخرائط الذهنية، حل تمارين الرياضيات بخط يدك، واحتفظ بلوحة لكل مادة على الحاسوب أو الجهاز اللوحي."),
+       ("الشركات", "ارسم مسار عمل أثناء مكالمة فيديو، رتّب أفكار الورشة على أوراق لاصقة، وحوّل نقاشًا متشعبًا إلى مخطط واضح للجميع.")],
+  contact_t="اتصل بنا", contact_lead="سؤال أو خلل أو فكرة للسبورة؟ أرسل لنا رسالة. نقرأ كل الرسائل.",
+  f_name="اسمك", f_email="بريدك الإلكتروني", f_topic="الموضوع", f_topics=["سؤال", "خلل", "فكرة", "موضوع آخر"],
+  f_msg="الرسالة", f_send="افتح في تطبيق البريد",
+  f_note="هذا الزر يفتح تطبيق البريد لديك والرسالة مكتوبة فيه. إذا لم يُفتح شيء، راسلنا مباشرة على",
+  tips_h="قبل أن تكتب",
+  tips=[("تبلّغ عن خلل؟", "اذكر جهازك ومتصفحك (مثلًا iPhone مع Safari أو Android مع Chrome) وما فعلته قبل ظهور المشكلة مباشرة."),
+        ("ضاعت لوحة؟", "اللوحات محفوظة في متصفحك، لذلك لا نستطيع رؤيتها ولا استرجاعها. تأكد أنك على الجهاز والمتصفح نفسيهما."),
+        ("لديك فكرة؟", "أخبرنا بما كنت تحاول فعله. مثال قصير يفيدنا أكثر من اسم ميزة.")],
+  blog="المدونة", blog_t="أفكار وأدلة ودروس للسبورة البيضاء",
+  blog_lead="أدلة عملية (بالإنجليزية) للتدريس والمراجعة والعصف الذهني والتخطيط على سبورة أونلاين.",
+  blog_desc="أدلة وأفكار لاستعمال السبورة البيضاء الأونلاين.",
+  read="دقائق", related="اقرأ أيضًا", try_h="جرّب على لوحة", try_p="افتح سبورة مجانية وطبّق هذا الدليل.",
+  all_posts="كل المقالات"),
+}
 LOCALE = {"en": "en_US", "fr": "fr_FR", "ar": "ar_MA"}
 for _k in L:
     L[_k].update(EXTRA[_k])
     L[_k].update(PAGE[_k])
+    L[_k].update(MORE[_k])
     _seo = dict(SEO[_k])
     L[_k]["faq"] = _seo.pop("faq_more") + L[_k]["faq"]
     L[_k].update(_seo)
@@ -301,9 +381,16 @@ def url(lang, page):
     return prefix(lang) + ("/" if page == "index" else "/" + page + ".html")
 
 
-def head(a, lang, page, title, desc):
+def head(a, lang, page, title, desc, path=None, og="website", extra=""):
+    """path: canonical path for pages that exist in one language only (the blog); they get no hreflang links
+    and their language menu leads to each language's home page."""
     d = L[lang]
-    alts = "".join(f'<link rel="alternate" hreflang="{x}" href="{a.domain}{url(x, page)}">' for x in LANGS)
+    canon = path or url(lang, page)
+    if path:
+        alts = ""
+    else:
+        alts = "".join(f'<link rel="alternate" hreflang="{x}" href="{a.domain}{url(x, page)}">' for x in LANGS)
+        alts += f'<link rel="alternate" hreflang="x-default" href="{a.domain}{url("en", page)}">\n'
     return f"""<!doctype html>
 <html lang="{lang}" dir="{'rtl' if lang == 'ar' else 'ltr'}">
 <head>
@@ -311,12 +398,11 @@ def head(a, lang, page, title, desc):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{a.domain}{url(lang, page)}">
-{alts}<link rel="alternate" hreflang="x-default" href="{a.domain}{url('en', page)}">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{a.domain}{canon}">
+{alts}<meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#1f5fd1">
 <meta property="og:site_name" content="SiteWhiteboard"><meta property="og:locale" content="{LOCALE[lang]}">
-<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{a.domain}{url(lang, page)}">
+<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="{og}"><meta property="og:url" content="{a.domain}{canon}">{extra}
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -326,8 +412,8 @@ def head(a, lang, page, title, desc):
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="{url(lang, 'index')}"><i class="logo"></i>{e(d['brand'])}</a>
-  <nav><a href="{url(lang, 'index')}#features">{e(d['nav_feat'])}</a><a href="{url(lang, 'index')}#pricing">{e(d['nav_price'])}</a><a href="{url(lang, 'index')}#faq">{e(d['nav_faq'])}</a></nav>
-  {lang_toggle(lang, page)}
+  <nav><a href="{url(lang, 'index')}#features">{e(d['nav_feat'])}</a><a href="{url(lang, 'index')}#pricing">{e(d['nav_price'])}</a><a href="{url(lang, 'index')}#faq">{e(d['nav_faq'])}</a><a href="/blog/"{' aria-current="page"' if page == 'blog' else ''}>{e(d['blog'])}</a></nav>
+  {lang_toggle(lang, 'index' if path else page)}
   <a class="cta small" href="{board(lang)}">{e(d['open'])}</a>
 </div></header>
 """
@@ -351,8 +437,8 @@ def foot(a, lang, page="index"):
     return f"""<footer><div class="wrap">
   <div class="fbrand"><a class="brand" href="{home}"><i class="logo"></i>{e(d['brand'])}</a><p>{e(d['small'])}</p>
     <a class="cta small" href="{board(lang)}">{e(d['open'])}</a></div>
-  <nav class="fcol"><h2 class="fh">{e(d['product'])}</h2><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a></nav>
-  <nav class="fcol"><h2 class="fh">{e(d['company'])}</h2><a href="{url(lang, 'about')}">{e(d['about'])}</a><a href="{url(lang, 'privacy')}">{e(d['privacy'])}</a><a href="{url(lang, 'terms')}">{e(d['terms'])}</a></nav>
+  <nav class="fcol"><h2 class="fh">{e(d['product'])}</h2><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a><a href="/blog/">{e(d['blog'])}</a></nav>
+  <nav class="fcol"><h2 class="fh">{e(d['company'])}</h2><a href="{url(lang, 'about')}">{e(d['about'])}</a><a href="{url(lang, 'contact')}">{e(d['contact'])}</a><a href="{url(lang, 'privacy')}">{e(d['privacy'])}</a><a href="{url(lang, 'terms')}">{e(d['terms'])}</a></nav>
   <div class="legal"><span>© 2026 {e(d['brand'])}. {e(d['rights'])}</span><span dir="ltr">{e(host)}</span></div>
 </div></footer>
 <a class="totop" id="totop" href="#" aria-label="{e(d['top'])}" title="{e(d['top'])}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
@@ -377,6 +463,8 @@ def landing(a, lang):
     fl = "".join(f"<li>{e(x.replace('{n}', str(a.free)))}</li>" for x in d["free_list"])
     pl = "".join(f"<li>{e(x)}</li>" for x in d["pro_list"])
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in d["faq"])
+    what = "".join(f"<p>{e(p)}</p>" for p in d["what"])
+    who = "".join(f'<li style="--c:var(--m-{c})"><h3>{e(t)}</h3><p>{e(p)}</p></li>' for (t, p), c in zip(d["who"], ["blue", "green", "amber"]))
     caps = "".join(f'<button class="cap" data-c="{c}" style="background:var(--m-{c})" aria-pressed="{"true" if c == "blue" else "false"}" aria-label="{c}"></button>' for c in CAPS)
     ld = json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "WebSite", "@id": a.domain + "/#site", "name": "SiteWhiteboard", "alternateName": d["brand"], "url": a.domain + "/", "inLanguage": LANGS},
@@ -404,6 +492,10 @@ def landing(a, lang):
     </div>
   </div>
 </div></div>
+<section class="what band" id="what"><div class="wrap">
+  <div class="txt"><h2>{e(d['what_h'])}</h2>{what}</div>
+  <div class="who"><h3 class="who-h">{e(d['who_h'])}</h3><ul>{who}</ul></div>
+</div></section>
 {ad(lang, 'top')}<section><div class="wrap">
   <h2>{e(d['uses_h'])}</h2>
   <ul class="uses">{uses}</ul>
@@ -495,6 +587,214 @@ def about(a, lang):
     return head(a, lang, "about", d["about_t"] + " – SiteWhiteboard", d["desc"]) + body + foot(a, lang, "about")
 
 
+def contact(a, lang):
+    d = L[lang]
+    opts = "".join(f"<option>{e(t)}</option>" for t in d["f_topics"])
+    tips = "".join(f'<li style="--c:var(--m-{c})"><h3>{e(t)}</h3><p>{e(p)}</p></li>' for (t, p), c in zip(d["tips"], ["red", "blue", "amber"]))
+    body = f"""<main class="contact"><div class="wrap">
+<div class="c-intro">
+  <span class="badge"><i></i>{e(d['contact'])}</span>
+  <h1>{e(d['contact_t'])}</h1>
+  <p class="lead">{e(d['contact_lead'])}</p>
+  <h2 class="tips-h">{e(d['tips_h'])}</h2>
+  <ul class="tips">{tips}</ul>
+</div>
+<form class="cform" id="cform" data-to="{e(a.email)}" novalidate>
+  <label>{e(d['f_name'])}<input name="name" autocomplete="name" required maxlength="100"></label>
+  <label>{e(d['f_email'])}<input name="email" type="email" autocomplete="email" required maxlength="200" dir="ltr"></label>
+  <label>{e(d['f_topic'])}<select name="topic">{opts}</select></label>
+  <label>{e(d['f_msg'])}<textarea name="message" rows="7" required maxlength="4000"></textarea></label>
+  <button class="cta" type="submit">{e(d['f_send'])}{ARROW}</button>
+  <p class="fnote">{e(d['f_note'])} <a data-mailto href="mailto:{e(a.email)}">{mail(a)}</a>.</p>
+</form>
+</div></main>
+"""
+    return head(a, lang, "contact", d["contact_t"] + " – SiteWhiteboard", d["contact_lead"]) + body + foot(a, lang, "contact")
+
+
+# ---------- blog: Markdown files in content/blog/ become pages under /blog/ ----------
+CAT_COLOR = {"Teaching": "blue", "Brainstorming": "amber", "Study": "green", "Guides": "violet", "Comparisons": "red", "Work": "ink"}
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+
+def slugify(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def md_inline(s):
+    s = e(s, quote=False)
+    s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<em>\1</em>", s)
+
+    def link(m):
+        href = m.group(2)
+        ext = ' rel="noopener" target="_blank"' if href.startswith("http") else ""
+        return f'<a href="{href}"{ext}>{m.group(1)}</a>'
+    return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, s)
+
+
+def md(text):
+    """The small part of Markdown the articles use: ## headings, paragraphs, - and 1. lists,
+    > quotes, | tables |, **bold**, *italic*, `code` and [links](url)."""
+    out, para, lst, lines, i = [], [], None, text.strip().splitlines(), 0
+
+    def flush():
+        nonlocal para, lst
+        if para:
+            out.append(f"<p>{md_inline(' '.join(para))}</p>")
+            para = []
+        if lst:
+            out.append(f"<{lst[0]}>" + "".join(f"<li>{md_inline(x)}</li>" for x in lst[1]) + f"</{lst[0]}>")
+            lst = None
+    while i < len(lines):
+        ln = lines[i].strip()
+        i += 1
+        if not ln:
+            flush()
+            continue
+        m = re.match(r"(#{2,4})\s+(.*)", ln)
+        if m:
+            flush()
+            n = len(m.group(1))
+            out.append(f'<h{n} id="{slugify(m.group(2))}">{md_inline(m.group(2))}</h{n}>')
+            continue
+        m = re.match(r"(?:[-*]|(\d+)\.)\s+(.*)", ln)
+        if m:
+            kind = "ol" if m.group(1) else "ul"
+            if para:
+                out.append(f"<p>{md_inline(' '.join(para))}</p>")
+                para = []
+            if lst and lst[0] != kind:
+                flush()
+            lst = lst or (kind, [])
+            lst[1].append(m.group(2))
+            continue
+        if ln.startswith(">"):
+            flush()
+            q = [ln.lstrip("> ")]
+            while i < len(lines) and lines[i].strip().startswith(">"):
+                q.append(lines[i].strip().lstrip("> "))
+                i += 1
+            out.append(f"<blockquote><p>{md_inline(' '.join(q))}</p></blockquote>")
+            continue
+        if ln.startswith("|"):
+            flush()
+            rows = [ln]
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                rows.append(lines[i].strip())
+                i += 1
+            cells = [[c.strip() for c in r.strip("|").split("|")] for r in rows if not re.match(r"^\|[\s:|-]+\|$", r)]
+            th = "".join(f'<th scope="col">{md_inline(c)}</th>' for c in cells[0])
+            tb = "".join("<tr>" + "".join((f'<th scope="row">{md_inline(c)}</th>' if k == 0 else f"<td>{md_inline(c)}</td>") for k, c in enumerate(r)) + "</tr>" for r in cells[1:])
+            out.append(f'<div class="tbl"><table><thead><tr>{th}</tr></thead><tbody>{tb}</tbody></table></div>')
+            continue
+        if lst:
+            flush()
+        para.append(ln)
+    flush()
+    return "\n".join(out)
+
+
+def load_posts():
+    posts = []
+    for f in sorted(BLOG_DIR.glob("*.md")):
+        raw = f.read_text(encoding="utf8").replace("\r\n", "\n")
+        m = re.match(r"---\n(.*?)\n---\n(.*)", raw, re.S)
+        if not m:
+            raise SystemExit(f"{f.name}: missing the --- front matter block")
+        meta = {}
+        for line in m.group(1).splitlines():
+            k, _, v = line.partition(":")
+            meta[k.strip()] = v.strip().strip('"')
+        for k in ("title", "description", "date", "category"):
+            if not meta.get(k):
+                raise SystemExit(f"{f.name}: front matter needs '{k}'")
+        body = m.group(2)
+        words = len(re.findall(r"[A-Za-z0-9']+", body))
+        y, mo, da = (int(x) for x in meta["date"].split("-"))
+        posts.append(dict(meta, slug=f.stem, body=body, words=words, mins=max(1, round(words / 220)),
+                          nice=f"{da} {MONTHS[mo - 1]} {y}", order=int(meta.get("order", 99))))
+    posts.sort(key=lambda p: p["order"])
+    posts.sort(key=lambda p: p["date"], reverse=True)
+    return posts
+
+
+def post_card(p, tag="h2"):
+    c = CAT_COLOR.get(p["category"], "blue")
+    return (f'<li class="pcard" style="--c:var(--m-{c})"><a href="/blog/{p["slug"]}/">'
+            f'<span class="cat"><i class="cap-ic"></i>{e(p["category"])}</span>'
+            f'<{tag}>{e(p["title"])}</{tag}><p>{e(p["description"])}</p>'
+            f'<span class="meta">{p["nice"]} · {p["mins"]} min read</span></a></li>')
+
+
+def blog_index(a, posts):
+    d = L["en"]
+    cats = []
+    for p in posts:
+        if p["category"] not in cats:
+            cats.append(p["category"])
+    chips = "".join(f'<li style="--c:var(--m-{CAT_COLOR.get(c, "blue")})"><i class="cap-ic"></i>{e(c)}</li>' for c in cats)
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Blog", "name": "SiteWhiteboard Blog", "url": a.domain + "/blog/",
+                     "inLanguage": "en", "description": d["blog_desc"],
+                     "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{a.domain}/blog/{p["slug"]}/', "datePublished": p["date"]} for p in posts]},
+                    ensure_ascii=False)
+    body = f"""<main class="blog">
+<section class="b-hero"><div class="wrap">
+  <span class="badge"><i></i>{e(d['blog'])}</span>
+  <h1>Ideas for your <span class="hand">whiteboard</span></h1>
+  <p class="lead">{e(d['blog_lead'])}</p>
+  <ul class="chips" aria-label="Topics">{chips}</ul>
+</div></section>
+<div class="wrap"><ul class="posts">{''.join(post_card(p) for p in posts)}</ul></div>
+</main>
+{ad('en', 'bottom')}<script type="application/ld+json">{ld}</script>
+"""
+    return head(a, "en", "blog", "Online Whiteboard Blog: Guides for Teaching, Study and Brainstorming | SiteWhiteboard", d["blog_desc"], path="/blog/") + body + foot(a, "en", "blog")
+
+
+def blog_post(a, p, posts):
+    d = L["en"]
+    link = f'{a.domain}/blog/{p["slug"]}/'
+    same = [x for x in posts if x is not p and x["category"] == p["category"]]
+    rest = [x for x in posts if x is not p and x not in same]
+    related = (same + rest)[:3]
+    c = CAT_COLOR.get(p["category"], "blue")
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "BlogPosting", "headline": p["title"], "description": p["description"], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
+         "inLanguage": "en", "wordCount": p["words"], "articleSection": p["category"], "url": link, "mainEntityOfPage": link,
+         "keywords": p.get("keywords", ""),
+         "author": {"@type": "Organization", "name": "SiteWhiteboard", "url": a.domain + "/"},
+         "publisher": {"@type": "Organization", "name": "SiteWhiteboard", "url": a.domain + "/", "logo": {"@type": "ImageObject", "url": a.domain + "/assets/icon.svg"}}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": a.domain + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": a.domain + "/blog/"},
+            {"@type": "ListItem", "position": 3, "name": p["title"], "item": link}]}]}, ensure_ascii=False)
+    extra = f'<meta property="article:published_time" content="{p["date"]}"><meta property="article:section" content="{e(p["category"])}">'
+    body = f"""<main class="post" style="--c:var(--m-{c})">
+<article>
+<header class="p-head"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/blog/">{e(d['blog'])}</a><span aria-hidden="true">/</span><span>{e(p['category'])}</span></nav>
+  <h1>{e(p['title'])}</h1>
+  <p class="lead">{e(p['description'])}</p>
+  <p class="meta"><time datetime="{p['date']}">{p['nice']}</time> · {p['mins']} {e(d['read'])}</p>
+</div></header>
+<div class="wrap prose">
+{md(p['body'])}
+<aside class="trynote"><h2>{e(d['try_h'])}</h2><p>{e(d['try_p'])}</p><a class="cta" href="/board/">{e(d['open'])}{ARROW}</a></aside>
+</div>
+</article>
+{ad('en', 'bottom')}<section class="related"><div class="wrap">
+  <h2>{e(d['related'])}</h2>
+  <ul class="posts">{''.join(post_card(x, 'h3') for x in related)}</ul>
+  <a class="cta ghost center" href="/blog/">{e(d['all_posts'])}</a>
+</div></section>
+</main>
+<script type="application/ld+json">{ld}</script>
+"""
+    return head(a, "en", "blog", p.get("seo_title") or p["title"] + " | SiteWhiteboard", p["description"], path=f'/blog/{p["slug"]}/', og="article", extra=extra) + body + foot(a, "en", "blog")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domain", default="https://www.sitewhiteboard.com", help="site address, no trailing slash")
@@ -547,15 +847,24 @@ def main():
         d = L[lang]
         base = DIST / lang if lang != "en" else DIST
         base.mkdir(exist_ok=True)
-        pages = {"index": landing(a, lang), "about": about(a, lang),
+        pages = {"index": landing(a, lang), "about": about(a, lang), "contact": contact(a, lang),
                  "privacy": doc(a, lang, "privacy", d["privacy_t"], sections(a, lang, d["privacy_s"])),
                  "terms": doc(a, lang, "terms", d["terms_t"], sections(a, lang, d["terms_s"]))}
         for name, text in pages.items():
             (base / (name + ".html")).write_text(text, encoding="utf8")
             urls.append(a.domain + url(lang, name))
+    # blog (English): /blog/ and /blog/<slug>/
+    posts = load_posts()
+    (DIST / "blog").mkdir()
+    (DIST / "blog/index.html").write_text(blog_index(a, posts), encoding="utf8")
+    for p in posts:
+        (DIST / "blog" / p["slug"]).mkdir()
+        (DIST / "blog" / p["slug"] / "index.html").write_text(blog_post(a, p, posts), encoding="utf8")
+    urls += [a.domain + "/blog/"] + [f'{a.domain}/blog/{p["slug"]}/' for p in posts]
+
     today = datetime.date.today().isoformat()
-    groups = [[board(x) for x in LANGS]] + [[url(x, p) for x in LANGS] for p in ("index", "about", "privacy", "terms")]
-    prio = {"index": "1.0", "board": "0.9", "about": "0.5", "privacy": "0.3", "terms": "0.3"}
+    groups = [[board(x) for x in LANGS]] + [[url(x, p) for x in LANGS] for p in ("index", "about", "contact", "privacy", "terms")]
+    prio = {"index": "1.0", "board": "0.9", "about": "0.5", "contact": "0.4", "privacy": "0.3", "terms": "0.3"}
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for g in groups:
@@ -564,6 +873,10 @@ def main():
         links += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{a.domain}{g[0]}"/>'
         for u in g:
             out.append(f"  <url>\n    <loc>{a.domain}{u}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>{prio[kind]}</priority>{links}\n  </url>")
+    newest = max([p.get("updated", p["date"]) for p in posts], default=today)
+    out.append(f"  <url>\n    <loc>{a.domain}/blog/</loc>\n    <lastmod>{newest}</lastmod>\n    <priority>0.8</priority>\n  </url>")
+    for p in posts:
+        out.append(f'  <url>\n    <loc>{a.domain}/blog/{p["slug"]}/</loc>\n    <lastmod>{p.get("updated", p["date"])}</lastmod>\n    <priority>0.7</priority>\n  </url>')
     out.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(out) + "\n", encoding="utf8")
     (DIST / "robots.txt").write_text(

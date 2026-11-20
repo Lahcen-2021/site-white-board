@@ -45,6 +45,21 @@ if(tt){
   tt.addEventListener('click',function(ev){ev.preventDefault();var r=matchMedia('(prefers-reduced-motion: reduce)').matches;window.scrollTo({top:0,behavior:r?'auto':'smooth'})});
 }
 
+/* contact form: no server, so it opens the visitor's email app with the message filled in */
+var cf=document.getElementById('cform');
+if(cf){
+  cf.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var bad=null;cf.querySelectorAll('[required]').forEach(function(f){var ok=f.checkValidity()&&f.value.trim();f.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=f});
+    if(bad){bad.focus();return}
+    var v=function(n){return cf.elements[n].value.trim()};
+    var to=C.contactEmail||cf.getAttribute('data-to');
+    var body=v('message')+'\n\n— '+v('name')+' <'+v('email')+'>\n'+location.hostname;
+    location.href='mailto:'+to+'?subject='+encodeURIComponent(v('topic')+' – SiteWhiteboard')+'&body='+encodeURIComponent(body);
+  });
+  cf.addEventListener('input',function(ev){if(ev.target.getAttribute('aria-invalid')==='true'&&ev.target.checkValidity()&&ev.target.value.trim())ev.target.setAttribute('aria-invalid','false')});
+}
+
 /* hero demo: a small pad you can draw on */
 var cv=document.getElementById('demo');if(!cv)return;
 var ctx=cv.getContext('2d'),strokes=[],cur=null,color='blue',W=1,H=1;
