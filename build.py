@@ -290,9 +290,11 @@ MORE = {
   tips=[("Reporting a bug?", "Tell us your device and browser (for example iPhone with Safari, or Android with Chrome) and what you did just before the problem."),
         ("Lost a board?", "Boards are saved in your browser, so we cannot see or recover them. Check that you are on the same device and the same browser you drew on."),
         ("Have an idea?", "Tell us what you were trying to do. A short example helps us more than a feature name.")],
-  blog="Blog", blog_t="Whiteboard ideas, guides and lessons",
+  blog="Blog", blog_t="Online Whiteboard Blog: Guides for Teaching, Study and Brainstorming | SiteWhiteboard",
+  blog_h1='Ideas for your <span class="hand">whiteboard</span>',
   blog_lead="Practical guides for teaching, studying, brainstorming and planning on an online whiteboard.",
   blog_desc="Guides and ideas for using an online whiteboard: teaching, maths, brainstorming, study, mind maps, flowcharts and comparisons of free whiteboard tools.",
+  topics="Topics", home="Home", crumbs="Breadcrumb",
   read="min read", related="Keep reading", try_h="Try it on a board", try_p="Open a free whiteboard and put this guide into practice. No sign-up.",
   all_posts="All articles"),
 "fr": dict(
@@ -312,10 +314,12 @@ MORE = {
   tips=[("Un bug ?", "Indiquez votre appareil et votre navigateur (par exemple iPhone avec Safari, ou Android avec Chrome) et ce que vous faisiez juste avant le problème."),
         ("Un tableau perdu ?", "Les tableaux sont enregistrés dans votre navigateur : nous ne pouvons ni les voir ni les récupérer. Vérifiez que vous êtes sur le même appareil et le même navigateur."),
         ("Une idée ?", "Dites-nous ce que vous essayiez de faire. Un exemple concret nous aide plus qu’un nom de fonction.")],
-  blog="Blog", blog_t="Idées, guides et cours pour le tableau blanc",
-  blog_lead="Des guides pratiques (en anglais) pour enseigner, réviser, faire un remue-méninges et planifier sur un tableau blanc en ligne.",
-  blog_desc="Guides et idées pour utiliser un tableau blanc en ligne.",
-  read="min", related="À lire aussi", try_h="Essayez sur un tableau", try_p="Ouvrez un tableau blanc gratuit et mettez ce guide en pratique.",
+  blog="Blog", blog_t="Blog du tableau blanc en ligne : guides pour enseigner, réviser et créer | SiteWhiteboard",
+  blog_h1='Des idées pour votre <span class="hand">tableau</span>',
+  blog_lead="Des guides pratiques pour enseigner, réviser, faire un remue-méninges et planifier sur un tableau blanc en ligne.",
+  blog_desc="Guides et idées pour utiliser un tableau blanc en ligne : enseignement, maths, remue-méninges, révisions, cartes mentales, logigrammes et comparatifs d’outils gratuits.",
+  topics="Thèmes", home="Accueil", crumbs="Fil d’Ariane",
+  read="min de lecture", related="À lire aussi", try_h="Essayez sur un tableau", try_p="Ouvrez un tableau blanc gratuit et mettez ce guide en pratique. Sans inscription.",
   all_posts="Tous les articles"),
 "ar": dict(
   what_h="ما هي السبورة البيضاء الأونلاين؟",
@@ -334,10 +338,12 @@ MORE = {
   tips=[("تبلّغ عن خلل؟", "اذكر جهازك ومتصفحك (مثلًا iPhone مع Safari أو Android مع Chrome) وما فعلته قبل ظهور المشكلة مباشرة."),
         ("ضاعت لوحة؟", "اللوحات محفوظة في متصفحك، لذلك لا نستطيع رؤيتها ولا استرجاعها. تأكد أنك على الجهاز والمتصفح نفسيهما."),
         ("لديك فكرة؟", "أخبرنا بما كنت تحاول فعله. مثال قصير يفيدنا أكثر من اسم ميزة.")],
-  blog="المدونة", blog_t="أفكار وأدلة ودروس للسبورة البيضاء",
-  blog_lead="أدلة عملية (بالإنجليزية) للتدريس والمراجعة والعصف الذهني والتخطيط على سبورة أونلاين.",
-  blog_desc="أدلة وأفكار لاستعمال السبورة البيضاء الأونلاين.",
-  read="دقائق", related="اقرأ أيضًا", try_h="جرّب على لوحة", try_p="افتح سبورة مجانية وطبّق هذا الدليل.",
+  blog="المدونة", blog_t="مدونة السبورة البيضاء الأونلاين: أدلة للتدريس والمراجعة والعصف الذهني | SiteWhiteboard",
+  blog_h1='أفكار لـ<span class="hand">سبورتك</span>',
+  blog_lead="أدلة عملية للتدريس والمراجعة والعصف الذهني والتخطيط على سبورة بيضاء أونلاين.",
+  blog_desc="أدلة وأفكار لاستعمال السبورة البيضاء الأونلاين: التدريس والرياضيات والعصف الذهني والمراجعة والخرائط الذهنية والمخططات ومقارنات بين الأدوات المجانية.",
+  topics="المواضيع", home="الرئيسية", crumbs="مسار التصفح",
+  read="دقائق قراءة", related="اقرأ أيضًا", try_h="جرّب على لوحة", try_p="افتح سبورة بيضاء مجانية وطبّق هذا الدليل. بدون تسجيل.",
   all_posts="كل المقالات"),
 }
 # own meta description for each legal page, and the longer About page
@@ -360,6 +366,7 @@ ABOUT = {
           ("Sync between devices", "A board saved on your laptop does not appear on your phone by itself. Move it with a project file."),
           ("Recovering lost boards", "We never see your boards, so we cannot restore them if your browser data is cleared. Export anything you want to keep.")],
   ab_blog="Read the guides"),
+
 "fr": dict(
   about_desc="Qui fait SiteWhiteboard, pourquoi il existe et comment il fonctionne : un tableau blanc en ligne gratuit, sans compte, qui garde vos tableaux dans votre navigateur.",
   privacy_desc="Comment SiteWhiteboard traite vos données : tableaux gardés dans votre navigateur, annonces Google AdSense et cookies, paiements, journaux du serveur et contact.",
@@ -377,7 +384,7 @@ ABOUT = {
   ab_not=[("Collaboration en direct", "Deux personnes ne peuvent pas dessiner sur le même tableau en même temps. Pour partager, exportez une image ou envoyez le fichier de projet."),
           ("Synchronisation entre appareils", "Un tableau enregistré sur votre ordinateur n’apparaît pas tout seul sur votre téléphone. Transférez-le avec un fichier de projet."),
           ("Récupérer un tableau perdu", "Nous ne voyons jamais vos tableaux, donc nous ne pouvons pas les restaurer si les données du navigateur sont effacées. Exportez ce que vous voulez garder.")],
-  ab_blog="Lire les guides (en anglais)"),
+  ab_blog="Lire les guides"),
 "ar": dict(
   about_desc="من يصنع SiteWhiteboard ولماذا وكيف تعمل: سبورة بيضاء مجانية على الإنترنت بدون حساب، تحفظ لوحاتك في متصفحك أنت.",
   privacy_desc="كيف يتعامل SiteWhiteboard مع بياناتك: لوحات تُحفظ في متصفحك فقط، إعلانات Google AdSense وملفات تعريف الارتباط، المدفوعات، سجلات الخادم وطريقة التواصل.",
@@ -395,7 +402,7 @@ ABOUT = {
   ab_not=[("التعاون المباشر", "لا يمكن لشخصين الرسم على اللوحة نفسها في الوقت نفسه. لمشاركة لوحة، صدّرها كصورة أو أرسل ملف المشروع."),
           ("المزامنة بين الأجهزة", "اللوحة المحفوظة على حاسوبك لا تظهر تلقائيًا على هاتفك. انقلها بملف مشروع."),
           ("استرجاع لوحة ضائعة", "لا نرى لوحاتك أبدًا، لذلك لا نستطيع استرجاعها إذا مُسحت بيانات المتصفح. صدّر كل ما تريد الاحتفاظ به.")],
-  ab_blog="اقرأ الأدلة (بالإنجليزية)"),
+  ab_blog="اقرأ الأدلة"),
 }
 LOCALE = {"en": "en_US", "fr": "fr_FR", "ar": "ar_MA"}
 for _k in L:
@@ -439,13 +446,23 @@ def url(lang, page):
     return prefix(lang) + ("/" if page == "index" else "/" + page + ".html")
 
 
-def head(a, lang, page, title, desc, path=None, og="website", extra=""):
-    """path: canonical path for pages that exist in one language only (the blog); they get no hreflang links
-    and their language menu leads to each language's home page."""
+def blog_url(lang, slug=None):
+    """/blog/, /fr/blog/, /ar/blog/ and the posts under them."""
+    return prefix(lang) + "/blog/" + (slug + "/" if slug else "")
+
+
+def head(a, lang, page, title, desc, path=None, og="website", extra="", alt_paths=None):
+    """path: canonical path for a page outside the normal page set (the blog).
+    alt_paths: {lang: path} for a blog page that exists in several languages; without it
+    such a page gets no hreflang links and its language menu leads to each home page."""
     d = L[lang]
     canon = path or url(lang, page)
     if path:
-        alts = ""
+        if alt_paths:
+            alts = "".join(f'<link rel="alternate" hreflang="{x}" href="{a.domain}{p}">' for x, p in alt_paths.items())
+            alts += f'<link rel="alternate" hreflang="x-default" href="{a.domain}{alt_paths["en"]}">\n' if "en" in alt_paths else "\n"
+        else:
+            alts = ""
     else:
         alts = "".join(f'<link rel="alternate" hreflang="{x}" href="{a.domain}{url(x, page)}">' for x in LANGS)
         alts += f'<link rel="alternate" hreflang="x-default" href="{a.domain}{url("en", page)}">\n'
@@ -470,17 +487,18 @@ def head(a, lang, page, title, desc, path=None, og="website", extra=""):
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="{url(lang, 'index')}"><i class="logo"></i>{e(d['brand'])}</a>
-  <nav><a href="{url(lang, 'index')}#features">{e(d['nav_feat'])}</a><a href="{url(lang, 'index')}#pricing">{e(d['nav_price'])}</a><a href="{url(lang, 'index')}#faq">{e(d['nav_faq'])}</a><a href="/blog/"{' aria-current="page"' if page == 'blog' else ''}>{e(d['blog'])}</a></nav>
-  {lang_toggle(lang, 'index' if path else page)}
+  <nav><a href="{url(lang, 'index')}#features">{e(d['nav_feat'])}</a><a href="{url(lang, 'index')}#pricing">{e(d['nav_price'])}</a><a href="{url(lang, 'index')}#faq">{e(d['nav_faq'])}</a><a href="{blog_url(lang)}"{' aria-current="page"' if page == 'blog' else ''}>{e(d['blog'])}</a></nav>
+  {lang_toggle(lang, 'index' if path else page, alt_paths)}
   <a class="cta small" href="{board(lang)}">{e(d['open'])}</a>
 </div></header>
 """
 
 
-def lang_toggle(lang, page):
-    """Language switcher: a button showing the current language that opens a small menu."""
+def lang_toggle(lang, page, alt_paths=None):
+    """Language switcher: a button showing the current language that opens a small menu.
+    alt_paths maps a language to the address of this same page in that language."""
     items = "".join(
-        f'<a href="{url(x, page)}" hreflang="{x}" lang="{x}"{" aria-current=" + chr(34) + "true" + chr(34) if x == lang else ""}>'
+        f'<a href="{(alt_paths or {}).get(x) or url(x, page)}" hreflang="{x}" lang="{x}"{" aria-current=" + chr(34) + "true" + chr(34) if x == lang else ""}>'
         f'{flag(x)}<span>{e(L[x]["name"])}</span><b>{e(L[x]["short"])}</b></a>' for x in LANGS)
     return (f'<details class="langdd"><summary aria-label="{e(L[lang]["lang_label"])}">'
             f'{flag(lang)}{e(L[lang]["short"])}'
@@ -495,7 +513,7 @@ def foot(a, lang, page="index"):
     return f"""<footer><div class="wrap">
   <div class="fbrand"><a class="brand" href="{home}"><i class="logo"></i>{e(d['brand'])}</a><p>{e(d['small'])}</p>
     <a class="cta small" href="{board(lang)}">{e(d['open'])}</a></div>
-  <nav class="fcol"><h2 class="fh">{e(d['product'])}</h2><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a><a href="/blog/">{e(d['blog'])}</a></nav>
+  <nav class="fcol"><h2 class="fh">{e(d['product'])}</h2><a href="{home}#features">{e(d['nav_feat'])}</a><a href="{home}#pricing">{e(d['nav_price'])}</a><a href="{home}#faq">{e(d['nav_faq'])}</a><a href="{blog_url(lang)}">{e(d['blog'])}</a></nav>
   <nav class="fcol"><h2 class="fh">{e(d['company'])}</h2><a href="{url(lang, 'about')}">{e(d['about'])}</a><a href="{url(lang, 'contact')}">{e(d['contact'])}</a><a href="{url(lang, 'privacy')}">{e(d['privacy'])}</a><a href="{url(lang, 'terms')}">{e(d['terms'])}</a></nav>
   <div class="legal"><span>© 2026 {e(d['brand'])}. {e(d['rights'])}</span><span dir="ltr">{e(host)}</span></div>
 </div></footer>
@@ -650,7 +668,7 @@ def about(a, lang):
   <h2>{e(d['cta_h'])}</h2>
   <p>{e(d['badge'])}</p>
   <div class="actions"><a class="cta big" href="{board(lang)}">{e(d['open'])}{ARROW}</a></div>
-  <p class="links"><a href="/blog/">{e(d['ab_blog'])}</a> · <a href="{url(lang, 'contact')}">{e(d['ab_contact_h'])}</a></p>
+  <p class="links"><a href="{blog_url(lang)}">{e(d['ab_blog'])}</a> · <a href="{url(lang, 'contact')}">{e(d['ab_contact_h'])}</a></p>
 </div></div></section>
 </main>
 {ad(lang, "bottom")}"""
@@ -682,9 +700,19 @@ def contact(a, lang):
     return head(a, lang, "contact", d["contact_t"] + " – SiteWhiteboard", d["contact_lead"]) + body + foot(a, lang, "contact")
 
 
-# ---------- blog: Markdown files in content/blog/ become pages under /blog/ ----------
+# ---------- blog: Markdown files in content/blog/<lang>/ become pages under /blog/, /fr/blog/, /ar/blog/ ----------
+# A post's category is written in English in the front matter and shown in the page's own language.
 CAT_COLOR = {"Teaching": "blue", "Brainstorming": "amber", "Study": "green", "Guides": "violet", "Comparisons": "red", "Work": "ink"}
-MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+CAT_NAME = {
+    "en": {"Teaching": "Teaching", "Brainstorming": "Brainstorming", "Study": "Study", "Guides": "Guides", "Comparisons": "Comparisons", "Work": "Work"},
+    "fr": {"Teaching": "Enseignement", "Brainstorming": "Remue-méninges", "Study": "Révisions", "Guides": "Guides", "Comparisons": "Comparatifs", "Work": "Travail"},
+    "ar": {"Teaching": "التدريس", "Brainstorming": "العصف الذهني", "Study": "المراجعة", "Guides": "أدلة", "Comparisons": "مقارنات", "Work": "العمل"},
+}
+MONTHS = {
+    "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+    "ar": ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليوز", "غشت", "شتنبر", "أكتوبر", "نونبر", "دجنبر"],
+}
 
 
 def slugify(t):
@@ -766,103 +794,114 @@ def md(text):
     return "\n".join(out)
 
 
-def load_posts():
+def load_posts(lang):
+    """Read content/blog/<lang>/*.md. 'key' ties the three language versions of one article together."""
     posts = []
-    for f in sorted(BLOG_DIR.glob("*.md")):
+    folder = BLOG_DIR / lang
+    if not folder.is_dir():
+        return posts
+    for f in sorted(folder.glob("*.md")):
         raw = f.read_text(encoding="utf8").replace("\r\n", "\n")
         m = re.match(r"---\n(.*?)\n---\n(.*)", raw, re.S)
         if not m:
-            raise SystemExit(f"{f.name}: missing the --- front matter block")
+            raise SystemExit(f"{lang}/{f.name}: missing the --- front matter block")
         meta = {}
         for line in m.group(1).splitlines():
             k, _, v = line.partition(":")
             meta[k.strip()] = v.strip().strip('"')
-        for k in ("title", "description", "date", "category"):
+        for k in ("title", "description", "date", "category", "key"):
             if not meta.get(k):
-                raise SystemExit(f"{f.name}: front matter needs '{k}'")
+                raise SystemExit(f"{lang}/{f.name}: front matter needs '{k}'")
+        if meta["category"] not in CAT_COLOR:
+            raise SystemExit(f'{lang}/{f.name}: unknown category "{meta["category"]}"')
         body = m.group(2)
-        words = len(re.findall(r"[A-Za-z0-9']+", body))
+        # Arabic has no spaces-per-word rule that matches the Latin one; count runs of letters instead
+        words = len(re.findall(r"[^\s\W\d_]+", body, re.U))
         y, mo, da = (int(x) for x in meta["date"].split("-"))
-        posts.append(dict(meta, slug=f.stem, body=body, words=words, mins=max(1, round(words / 220)),
-                          nice=f"{da} {MONTHS[mo - 1]} {y}", order=int(meta.get("order", 99))))
+        nice = f"{da} {MONTHS[lang][mo - 1]} {y}" if lang != "en" else f"{da} {MONTHS['en'][mo - 1]} {y}"
+        posts.append(dict(meta, lang=lang, slug=f.stem, body=body, words=words, mins=max(1, round(words / 220)),
+                          nice=nice, order=int(meta.get("order", 99))))
     posts.sort(key=lambda p: p["order"])
     posts.sort(key=lambda p: p["date"], reverse=True)
     return posts
 
 
-def post_card(p, tag="h2"):
+def post_card(lang, p, tag="h2"):
     c = CAT_COLOR.get(p["category"], "blue")
-    return (f'<li class="pcard" style="--c:var(--m-{c})"><a href="/blog/{p["slug"]}/">'
-            f'<span class="cat"><i class="cap-ic"></i>{e(p["category"])}</span>'
+    return (f'<li class="pcard" style="--c:var(--m-{c})"><a href="{blog_url(lang, p["slug"])}">'
+            f'<span class="cat"><i class="cap-ic"></i>{e(CAT_NAME[lang][p["category"]])}</span>'
             f'<{tag}>{e(p["title"])}</{tag}><p>{e(p["description"])}</p>'
-            f'<span class="meta">{p["nice"]} · {p["mins"]} min read</span></a></li>')
+            f'<span class="meta">{e(p["nice"])} · {p["mins"]} {e(L[lang]["read"])}</span></a></li>')
 
 
-def blog_index(a, posts):
-    d = L["en"]
+def blog_index(a, lang, posts, alt_paths):
+    d = L[lang]
     cats = []
     for p in posts:
         if p["category"] not in cats:
             cats.append(p["category"])
-    chips = "".join(f'<li style="--c:var(--m-{CAT_COLOR.get(c, "blue")})"><i class="cap-ic"></i>{e(c)}</li>' for c in cats)
-    ld = json.dumps({"@context": "https://schema.org", "@type": "Blog", "name": "SiteWhiteboard Blog", "url": a.domain + "/blog/",
-                     "inLanguage": "en", "description": d["blog_desc"],
-                     "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": f'{a.domain}/blog/{p["slug"]}/', "datePublished": p["date"]} for p in posts]},
+    chips = "".join(f'<li style="--c:var(--m-{CAT_COLOR.get(c, "blue")})"><i class="cap-ic"></i>{e(CAT_NAME[lang][c])}</li>' for c in cats)
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Blog", "name": "SiteWhiteboard Blog", "url": a.domain + blog_url(lang),
+                     "inLanguage": lang, "description": d["blog_desc"],
+                     "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": a.domain + blog_url(lang, p["slug"]), "datePublished": p["date"]} for p in posts]},
                     ensure_ascii=False)
     body = f"""<main class="blog">
 <section class="b-hero"><div class="wrap">
   <span class="badge"><i></i>{e(d['blog'])}</span>
-  <h1>Ideas for your <span class="hand">whiteboard</span></h1>
+  <h1>{d['blog_h1']}</h1>
   <p class="lead">{e(d['blog_lead'])}</p>
-  <ul class="chips" aria-label="Topics">{chips}</ul>
+  <ul class="chips" aria-label="{e(d['topics'])}">{chips}</ul>
 </div></section>
-<div class="wrap"><ul class="posts">{''.join(post_card(p) for p in posts)}</ul></div>
+<div class="wrap"><ul class="posts">{''.join(post_card(lang, p) for p in posts)}</ul></div>
 </main>
-{ad('en', 'bottom')}<script type="application/ld+json">{ld}</script>
+{ad(lang, 'bottom')}<script type="application/ld+json">{ld}</script>
 """
-    return head(a, "en", "blog", "Online Whiteboard Blog: Guides for Teaching, Study and Brainstorming | SiteWhiteboard", d["blog_desc"], path="/blog/") + body + foot(a, "en", "blog")
+    return (head(a, lang, "blog", d["blog_t"], d["blog_desc"], path=blog_url(lang), alt_paths=alt_paths)
+            + body + foot(a, lang, "blog"))
 
 
-def blog_post(a, p, posts):
-    d = L["en"]
-    link = f'{a.domain}/blog/{p["slug"]}/'
+def blog_post(a, lang, p, posts, alt_paths):
+    d = L[lang]
+    link = a.domain + blog_url(lang, p["slug"])
     same = [x for x in posts if x is not p and x["category"] == p["category"]]
     rest = [x for x in posts if x is not p and x not in same]
     related = (same + rest)[:3]
     c = CAT_COLOR.get(p["category"], "blue")
     ld = json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "BlogPosting", "headline": p["title"], "description": p["description"], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]),
-         "inLanguage": "en", "wordCount": p["words"], "articleSection": p["category"], "url": link, "mainEntityOfPage": link,
+         "inLanguage": lang, "wordCount": p["words"], "articleSection": CAT_NAME[lang][p["category"]], "url": link, "mainEntityOfPage": link,
          "keywords": p.get("keywords", ""),
          "author": {"@type": "Organization", "name": "SiteWhiteboard", "url": a.domain + "/"},
          "publisher": {"@type": "Organization", "name": "SiteWhiteboard", "url": a.domain + "/", "logo": {"@type": "ImageObject", "url": a.domain + "/assets/icon.svg"}}},
         {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": a.domain + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": a.domain + "/blog/"},
+            {"@type": "ListItem", "position": 1, "name": d["home"], "item": a.domain + url(lang, "index")},
+            {"@type": "ListItem", "position": 2, "name": d["blog"], "item": a.domain + blog_url(lang)},
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": link}]}]}, ensure_ascii=False)
-    extra = f'<meta property="article:published_time" content="{p["date"]}"><meta property="article:section" content="{e(p["category"])}">'
+    extra = f'<meta property="article:published_time" content="{p["date"]}"><meta property="article:section" content="{e(CAT_NAME[lang][p["category"]])}">'
     body = f"""<main class="post" style="--c:var(--m-{c})">
 <article>
 <header class="p-head"><div class="wrap">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/blog/">{e(d['blog'])}</a><span aria-hidden="true">/</span><span>{e(p['category'])}</span></nav>
+  <nav class="crumbs" aria-label="{e(d['crumbs'])}"><a href="{blog_url(lang)}">{e(d['blog'])}</a><span aria-hidden="true">/</span><span>{e(CAT_NAME[lang][p['category']])}</span></nav>
   <h1>{e(p['title'])}</h1>
   <p class="lead">{e(p['description'])}</p>
-  <p class="meta"><time datetime="{p['date']}">{p['nice']}</time> · {p['mins']} {e(d['read'])}</p>
+  <p class="meta"><time datetime="{p['date']}">{e(p['nice'])}</time> · {p['mins']} {e(d['read'])}</p>
 </div></header>
 <div class="wrap prose">
 {md(p['body'])}
-<aside class="trynote"><h2>{e(d['try_h'])}</h2><p>{e(d['try_p'])}</p><a class="cta" href="/board/">{e(d['open'])}{ARROW}</a></aside>
+<aside class="trynote"><h2>{e(d['try_h'])}</h2><p>{e(d['try_p'])}</p><a class="cta" href="{board(lang)}">{e(d['open'])}{ARROW}</a></aside>
 </div>
 </article>
-{ad('en', 'bottom')}<section class="related"><div class="wrap">
+{ad(lang, 'bottom')}<section class="related"><div class="wrap">
   <h2>{e(d['related'])}</h2>
-  <ul class="posts">{''.join(post_card(x, 'h3') for x in related)}</ul>
-  <a class="cta ghost center" href="/blog/">{e(d['all_posts'])}</a>
+  <ul class="posts">{''.join(post_card(lang, x, 'h3') for x in related)}</ul>
+  <a class="cta ghost center" href="{blog_url(lang)}">{e(d['all_posts'])}</a>
 </div></section>
 </main>
 <script type="application/ld+json">{ld}</script>
 """
-    return head(a, "en", "blog", p.get("seo_title") or p["title"] + " | SiteWhiteboard", p["description"], path=f'/blog/{p["slug"]}/', og="article", extra=extra) + body + foot(a, "en", "blog")
+    return (head(a, lang, "blog", p.get("seo_title") or p["title"] + " | SiteWhiteboard", p["description"],
+                 path=blog_url(lang, p["slug"]), og="article", extra=extra, alt_paths=alt_paths)
+            + body + foot(a, lang, "blog"))
 
 
 def main():
@@ -923,14 +962,23 @@ def main():
         for name, text in pages.items():
             (base / (name + ".html")).write_text(text, encoding="utf8")
             urls.append(a.domain + url(lang, name))
-    # blog (English): /blog/ and /blog/<slug>/
-    posts = load_posts()
-    (DIST / "blog").mkdir()
-    (DIST / "blog/index.html").write_text(blog_index(a, posts), encoding="utf8")
-    for p in posts:
-        (DIST / "blog" / p["slug"]).mkdir()
-        (DIST / "blog" / p["slug"] / "index.html").write_text(blog_post(a, p, posts), encoding="utf8")
-    urls += [a.domain + "/blog/"] + [f'{a.domain}/blog/{p["slug"]}/' for p in posts]
+    # blog: /blog/, /fr/blog/, /ar/blog/ and the posts under each
+    blog = {x: load_posts(x) for x in LANGS}
+    blog_langs = [x for x in LANGS if blog[x]]
+    # an article is linked to its translations through the shared 'key' in the front matter
+    by_key = {x: {p["key"]: p for p in blog[x]} for x in LANGS}
+    index_alts = {x: blog_url(x) for x in blog_langs}
+    for lang in blog_langs:
+        posts = blog[lang]
+        folder = DIST / lang / "blog" if lang != "en" else DIST / "blog"
+        folder.mkdir(parents=True)
+        (folder / "index.html").write_text(blog_index(a, lang, posts, index_alts), encoding="utf8")
+        urls.append(a.domain + blog_url(lang))
+        for p in posts:
+            alts = {x: blog_url(x, by_key[x][p["key"]]["slug"]) for x in blog_langs if p["key"] in by_key[x]}
+            (folder / p["slug"]).mkdir()
+            (folder / p["slug"] / "index.html").write_text(blog_post(a, lang, p, posts, alts), encoding="utf8")
+            urls.append(a.domain + blog_url(lang, p["slug"]))
 
     today = datetime.date.today().isoformat()
     groups = [[board(x) for x in LANGS]] + [[url(x, p) for x in LANGS] for p in ("index", "about", "contact", "privacy", "terms")]
@@ -943,10 +991,17 @@ def main():
         links += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{a.domain}{g[0]}"/>'
         for u in g:
             out.append(f"  <url>\n    <loc>{a.domain}{u}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>{prio[kind]}</priority>{links}\n  </url>")
-    newest = max([p.get("updated", p["date"]) for p in posts], default=today)
-    out.append(f"  <url>\n    <loc>{a.domain}/blog/</loc>\n    <lastmod>{newest}</lastmod>\n    <priority>0.8</priority>\n  </url>")
-    for p in posts:
-        out.append(f'  <url>\n    <loc>{a.domain}/blog/{p["slug"]}/</loc>\n    <lastmod>{p.get("updated", p["date"])}</lastmod>\n    <priority>0.7</priority>\n  </url>')
+    # blog index and posts, with the translations of each listed as alternates
+    idx_links = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{x}" href="{a.domain}{blog_url(x)}"/>' for x in blog_langs)
+    idx_links += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{a.domain}/blog/"/>' if "en" in blog_langs else ""
+    for lang in blog_langs:
+        newest = max([p.get("updated", p["date"]) for p in blog[lang]], default=today)
+        out.append(f"  <url>\n    <loc>{a.domain}{blog_url(lang)}</loc>\n    <lastmod>{newest}</lastmod>\n    <priority>0.8</priority>{idx_links}\n  </url>")
+        for p in blog[lang]:
+            alts = {x: blog_url(x, by_key[x][p["key"]]["slug"]) for x in blog_langs if p["key"] in by_key[x]}
+            links = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{x}" href="{a.domain}{u}"/>' for x, u in alts.items())
+            links += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{a.domain}{alts["en"]}"/>' if "en" in alts else ""
+            out.append(f'  <url>\n    <loc>{a.domain}{blog_url(lang, p["slug"])}</loc>\n    <lastmod>{p.get("updated", p["date"])}</lastmod>\n    <priority>0.7</priority>{links}\n  </url>')
     out.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(out) + "\n", encoding="utf8")
     (DIST / "robots.txt").write_text(
