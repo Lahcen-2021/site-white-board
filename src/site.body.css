@@ -167,6 +167,17 @@ section h2{text-align:center}
 .ab-cta .box{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:56px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
 .ab-cta p{color:var(--muted);max-width:30em}
 .ab-cta .actions{margin-top:8px}
+.ab-cta .links{font-size:15.5px;margin-top:4px}
+.ab-cta .links a{color:var(--fg);text-underline-offset:3px}
+.ab-how,.ab-two{padding-block:80px}
+.ab-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ab-grid li{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:16px;padding:24px 24px 26px}
+.ab-grid h3{font-size:19px;margin-bottom:8px}
+.ab-grid p{color:var(--muted);font-size:16px;line-height:1.6}
+.ab-two .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:start}
+.ab-two .txt{display:flex;flex-direction:column;gap:16px}
+.ab-two h2{text-align:start;margin-bottom:4px}
+.ab-two .txt p{font-size:17.5px;color:var(--muted)}
 .mailto [data-email]{font-weight:600}
 
 /* home: what is an online whiteboard */
@@ -301,8 +312,8 @@ footer .legal{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space
 @media (max-width:1100px){.sticky{display:none}}
 @media (max-width:900px){.uses{grid-template-columns:repeat(2,minmax(0,1fr))}.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:720px){.top nav{display:none}.langdd{margin-inline-start:auto}section{padding-block:48px}.hero{padding-block:36px 32px}.demo .pad{aspect-ratio:4/3}}
-@media (max-width:900px){footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.fbrand{grid-column:1/-1}.vals{grid-template-columns:minmax(0,1fr)}.ab-story .wrap{grid-template-columns:minmax(0,1fr);gap:36px}}
-@media (max-width:600px){.ab-hero{padding-block:48px}.ab-cta{padding-block:48px}.ab-cta .box{padding:40px 20px}.feats,.steps,.plans{grid-template-columns:minmax(0,1fr)}.demo .chrome span{display:none}.final .box{padding:40px 20px}}
+@media (max-width:900px){footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.fbrand{grid-column:1/-1}.vals{grid-template-columns:minmax(0,1fr)}.ab-story .wrap,.ab-two .wrap{grid-template-columns:minmax(0,1fr);gap:36px}.ab-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.ab-hero{padding-block:48px}.ab-how,.ab-two{padding-block:56px}.ab-cta{padding-block:48px}.ab-cta .box{padding:40px 20px}.feats,.steps,.plans{grid-template-columns:minmax(0,1fr)}.demo .chrome span{display:none}.final .box{padding:40px 20px}}
 @media (max-width:480px){.top .cta{display:none}.uses{grid-template-columns:minmax(0,1fr)}.actions .cta{width:100%}.actions{width:100%}}
 @media (max-width:900px){.what .wrap,.contact>.wrap{grid-template-columns:minmax(0,1fr);gap:36px}.cform{position:static}.posts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){section.what{padding-block:56px}.posts{grid-template-columns:minmax(0,1fr)}.contact>.wrap{padding-block:40px 56px}.cform{padding:22px 18px}.cform .cta{align-self:stretch}.prose{font-size:17px}.trynote{transform:none}}

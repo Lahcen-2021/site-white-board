@@ -340,11 +340,69 @@ MORE = {
   read="دقائق", related="اقرأ أيضًا", try_h="جرّب على لوحة", try_p="افتح سبورة مجانية وطبّق هذا الدليل.",
   all_posts="كل المقالات"),
 }
+# own meta description for each legal page, and the longer About page
+ABOUT = {
+"en": dict(
+  about_desc="Who makes SiteWhiteboard, why it exists and how it works: a free online whiteboard with no account, where your boards stay saved in your own browser.",
+  privacy_desc="How SiteWhiteboard handles your data: boards kept only in your browser, Google AdSense ads and cookies, payments, server logs and how to reach us.",
+  terms_desc="The rules for using SiteWhiteboard: what you may do with the free online whiteboard, who owns your drawings, the Pro plan, warranty and changes.",
+  ab_how_h="How SiteWhiteboard works",
+  ab_how=[("Your boards stay on your device", "Every board is saved in your browser's local storage while you draw. Nothing is uploaded, so there is no account to create and no password to forget. The other side of this: if you clear your browser's site data, the boards go with it."),
+          ("Export and keep your work", "Save any board as a PNG image for a document, a slide or a chat. You can also save a board as a project file and open it again later, on the same device or on another one."),
+          ("Free, paid for by ads", "All drawing tools are free, and the free plan keeps up to {n} boards at a time. Ads appear on the site pages, never on the board, so they stay out of the way while you draw. An optional Pro plan removes the ads and the board limit."),
+          ("Works where you are", "SiteWhiteboard runs in a modern browser on a phone, a tablet or a computer. Draw with a mouse, a finger or a pen, and use two fingers to move and zoom the board.")],
+  ab_who_h="Who makes SiteWhiteboard",
+  ab_who=["SiteWhiteboard is an independent project. It is not part of a large software company, and it is kept small on purpose: one board, a short list of tools, and pages that load quickly even on a slow connection.",
+          "The people who build the whiteboard also write the guides on our blog and answer the messages sent through the contact page. When you report a bug or ask for a feature, it goes straight to them.",
+          "The site is available in English, French and Arabic, and the Arabic pages and board read from right to left."],
+  ab_not_h="What it does not do yet",
+  ab_not=[("Live collaboration", "Two people cannot draw on the same board at the same time. To share a board, export it as an image or send the project file."),
+          ("Sync between devices", "A board saved on your laptop does not appear on your phone by itself. Move it with a project file."),
+          ("Recovering lost boards", "We never see your boards, so we cannot restore them if your browser data is cleared. Export anything you want to keep.")],
+  ab_blog="Read the guides"),
+"fr": dict(
+  about_desc="Qui fait SiteWhiteboard, pourquoi il existe et comment il fonctionne : un tableau blanc en ligne gratuit, sans compte, qui garde vos tableaux dans votre navigateur.",
+  privacy_desc="Comment SiteWhiteboard traite vos données : tableaux gardés dans votre navigateur, annonces Google AdSense et cookies, paiements, journaux du serveur et contact.",
+  terms_desc="Les règles d’utilisation de SiteWhiteboard : ce que vous pouvez faire avec le tableau blanc gratuit, à qui appartiennent vos dessins, l’offre Pro et la garantie.",
+  ab_how_h="Comment fonctionne SiteWhiteboard",
+  ab_how=[("Vos tableaux restent sur votre appareil", "Chaque tableau est enregistré dans le stockage local de votre navigateur pendant que vous dessinez. Rien n’est envoyé en ligne : pas de compte à créer, pas de mot de passe à retenir. En contrepartie, si vous effacez les données du site dans votre navigateur, les tableaux disparaissent aussi."),
+          ("Exportez et gardez votre travail", "Enregistrez n’importe quel tableau en image PNG pour un document, une présentation ou une discussion. Vous pouvez aussi l’enregistrer comme fichier de projet et le rouvrir plus tard, sur le même appareil ou sur un autre."),
+          ("Gratuit, financé par la publicité", "Tous les outils de dessin sont gratuits et l’offre gratuite garde jusqu’à {n} tableaux à la fois. Les publicités sont sur les pages du site, jamais sur le tableau, pour ne pas gêner le dessin. Une offre Pro facultative retire les publicités et la limite de tableaux."),
+          ("Partout où vous êtes", "SiteWhiteboard fonctionne dans un navigateur récent sur téléphone, tablette ou ordinateur. Dessinez à la souris, au doigt ou au stylet, et utilisez deux doigts pour déplacer et zoomer.")],
+  ab_who_h="Qui fait SiteWhiteboard",
+  ab_who=["SiteWhiteboard est un projet indépendant. Il n’appartient pas à un grand éditeur de logiciels et reste volontairement simple : un tableau, une courte liste d’outils et des pages qui se chargent vite, même avec une connexion lente.",
+          "Les personnes qui construisent le tableau écrivent aussi les guides du blog et répondent aux messages envoyés depuis la page de contact. Quand vous signalez un bug ou proposez une idée, il arrive directement chez elles.",
+          "Le site existe en anglais, en français et en arabe, et les pages et le tableau en arabe se lisent de droite à gauche."],
+  ab_not_h="Ce qu’il ne fait pas encore",
+  ab_not=[("Collaboration en direct", "Deux personnes ne peuvent pas dessiner sur le même tableau en même temps. Pour partager, exportez une image ou envoyez le fichier de projet."),
+          ("Synchronisation entre appareils", "Un tableau enregistré sur votre ordinateur n’apparaît pas tout seul sur votre téléphone. Transférez-le avec un fichier de projet."),
+          ("Récupérer un tableau perdu", "Nous ne voyons jamais vos tableaux, donc nous ne pouvons pas les restaurer si les données du navigateur sont effacées. Exportez ce que vous voulez garder.")],
+  ab_blog="Lire les guides (en anglais)"),
+"ar": dict(
+  about_desc="من يصنع SiteWhiteboard ولماذا وكيف تعمل: سبورة بيضاء مجانية على الإنترنت بدون حساب، تحفظ لوحاتك في متصفحك أنت.",
+  privacy_desc="كيف يتعامل SiteWhiteboard مع بياناتك: لوحات تُحفظ في متصفحك فقط، إعلانات Google AdSense وملفات تعريف الارتباط، المدفوعات، سجلات الخادم وطريقة التواصل.",
+  terms_desc="قواعد استخدام SiteWhiteboard: ما يمكنك فعله بالسبورة البيضاء المجانية، ملكية رسوماتك، خطة Pro، إخلاء المسؤولية والتعديلات.",
+  ab_how_h="كيف تعمل SiteWhiteboard",
+  ab_how=[("لوحاتك تبقى على جهازك", "كل لوحة تُحفظ في التخزين المحلي لمتصفحك أثناء الرسم. لا يُرفع أي شيء، لذلك لا حساب تنشئه ولا كلمة مرور تنساها. في المقابل، إذا مسحت بيانات الموقع من متصفحك تُحذف اللوحات معها."),
+          ("صدّر عملك واحتفظ به", "احفظ أي لوحة كصورة PNG لمستند أو عرض تقديمي أو محادثة. ويمكنك أيضًا حفظها كملف مشروع وفتحها لاحقًا على الجهاز نفسه أو على جهاز آخر."),
+          ("مجانية بفضل الإعلانات", "كل أدوات الرسم مجانية، والخطة المجانية تحفظ حتى {n} لوحات في الوقت نفسه. الإعلانات تظهر في صفحات الموقع فقط وليس على اللوحة، فلا تزعجك أثناء الرسم. خطة Pro الاختيارية تزيل الإعلانات وحدّ عدد اللوحات."),
+          ("تعمل أينما كنت", "تعمل SiteWhiteboard في أي متصفح حديث على الهاتف أو الجهاز اللوحي أو الحاسوب. ارسم بالفأرة أو بإصبعك أو بالقلم، واستخدم إصبعين لتحريك اللوحة وتكبيرها.")],
+  ab_who_h="من يصنع SiteWhiteboard",
+  ab_who=["SiteWhiteboard مشروع مستقل، لا يتبع شركة برمجيات كبيرة، ونحرص على أن يبقى بسيطًا: لوحة واحدة، أدوات قليلة، وصفحات سريعة حتى مع اتصال ضعيف.",
+          "من يبنون السبورة هم أنفسهم من يكتبون أدلة المدونة ويردّون على الرسائل التي تصل من صفحة التواصل. عندما تبلّغ عن خلل أو تقترح ميزة، يصل كلامك إليهم مباشرة.",
+          "الموقع متاح بالإنجليزية والفرنسية والعربية، والصفحات واللوحة بالعربية تُقرأ من اليمين إلى اليسار."],
+  ab_not_h="ما لا تفعله بعد",
+  ab_not=[("التعاون المباشر", "لا يمكن لشخصين الرسم على اللوحة نفسها في الوقت نفسه. لمشاركة لوحة، صدّرها كصورة أو أرسل ملف المشروع."),
+          ("المزامنة بين الأجهزة", "اللوحة المحفوظة على حاسوبك لا تظهر تلقائيًا على هاتفك. انقلها بملف مشروع."),
+          ("استرجاع لوحة ضائعة", "لا نرى لوحاتك أبدًا، لذلك لا نستطيع استرجاعها إذا مُسحت بيانات المتصفح. صدّر كل ما تريد الاحتفاظ به.")],
+  ab_blog="اقرأ الأدلة (بالإنجليزية)"),
+}
 LOCALE = {"en": "en_US", "fr": "fr_FR", "ar": "ar_MA"}
 for _k in L:
     L[_k].update(EXTRA[_k])
     L[_k].update(PAGE[_k])
     L[_k].update(MORE[_k])
+    L[_k].update(ABOUT[_k])
     _seo = dict(SEO[_k])
     L[_k]["faq"] = _seo.pop("faq_more") + L[_k]["faq"]
     L[_k].update(_seo)
@@ -537,7 +595,7 @@ def mail(a):
 
 def doc(a, lang, page, title, body):
     d = L[lang]
-    return head(a, lang, page, title + " – SiteWhiteboard", d["desc"]) + f'<main class="wrap doc">\n<h1>{e(title)}</h1>\n{body}</main>\n{ad(lang, "bottom")}' + foot(a, lang, page)
+    return head(a, lang, page, title + " – SiteWhiteboard", d[page + "_desc"]) + f'<main class="wrap doc">\n<h1>{e(title)}</h1>\n{body}</main>\n{ad(lang, "bottom")}' + foot(a, lang, page)
 
 
 def sections(a, lang, items):
@@ -565,6 +623,9 @@ def about(a, lang):
     vals = "".join(f'<li style="--c:var(--m-{VAL_COLORS[i]})"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{VAL_ICONS[i]}"/></svg></span><h3>{e(t)}</h3><p>{e(p)}</p></li>'
                    for i, (t, p) in enumerate(d["ab_vals"]))
     story = "".join(f"<p>{e(p)}</p>" for p in d["ab_story"])
+    how = "".join(f'<li style="--c:var(--m-{CAPS[i]})"><h3>{e(t)}</h3><p>{e(p.replace("{n}", str(a.free)))}</p></li>' for i, (t, p) in enumerate(d["ab_how"]))
+    who = "".join(f"<p>{e(p)}</p>" for p in d["ab_who"])
+    nots = "".join(f'<li style="--c:var(--m-{c})"><h3>{e(t)}</h3><p>{e(p)}</p></li>' for (t, p), c in zip(d["ab_not"], ["red", "amber", "violet"]))
     notes = "".join(f'<span class="note n{i + 1}" style="background:var(--p-{c})">{e(t)}</span>' for i, (t, c) in enumerate(zip(d["notes"], ["amber", "green", "violet"])))
     body = f"""<main class="about">
 <section class="ab-hero"><div class="wrap">
@@ -577,14 +638,23 @@ def about(a, lang):
   <div class="txt"><h2>{e(d['ab_story_h'])}</h2>{story}</div>
   <div class="board" aria-hidden="true">{notes}<svg class="arr" viewBox="0 0 200 80"><path d="M10 60C60 10 120 10 185 40M170 28l15 12-18 6"/></svg></div>
 </div></section>
+<section class="ab-how"><div class="wrap">
+  <h2>{e(d['ab_how_h'])}</h2>
+  <ul class="ab-grid">{how}</ul>
+</div></section>
+<section class="ab-two band"><div class="wrap">
+  <div class="txt"><h2>{e(d['ab_who_h'])}</h2>{who}</div>
+  <div class="who"><h3 class="who-h">{e(d['ab_not_h'])}</h3><ul>{nots}</ul></div>
+</div></section>
 <section class="ab-cta"><div class="wrap"><div class="box">
   <h2>{e(d['cta_h'])}</h2>
   <p>{e(d['badge'])}</p>
   <div class="actions"><a class="cta big" href="{board(lang)}">{e(d['open'])}{ARROW}</a></div>
+  <p class="links"><a href="/blog/">{e(d['ab_blog'])}</a> · <a href="{url(lang, 'contact')}">{e(d['ab_contact_h'])}</a></p>
 </div></div></section>
 </main>
 {ad(lang, "bottom")}"""
-    return head(a, lang, "about", d["about_t"] + " – SiteWhiteboard", d["desc"]) + body + foot(a, lang, "about")
+    return head(a, lang, "about", d["about_t"] + " – SiteWhiteboard", d["about_desc"]) + body + foot(a, lang, "about")
 
 
 def contact(a, lang):
