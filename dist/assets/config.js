@@ -1,5 +1,5 @@
 window.FELT_CONFIG={
-  "adsenseClient": "",
+  "adsenseClient": "ca-pub-4739920521831914",
   "adSlots": {
     "top": "",
     "middle": "",

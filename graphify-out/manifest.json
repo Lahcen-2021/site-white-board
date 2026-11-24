@@ -1,0 +1,308 @@
+{
+  "build.py": {
+    "mtime": 1795464984.9830973,
+    "seen": 1795546692.1627052,
+    "ast_hash": "3ce12404e00951fc270a0ba5a59b2b3f",
+    "semantic_hash": "3ce12404e00951fc270a0ba5a59b2b3f"
+  },
+  "src/app.js": {
+    "mtime": 1794692675.2695007,
+    "seen": 1795546692.1627107,
+    "ast_hash": "5199e9e912f5f88ac3a953857b4fc128",
+    "semantic_hash": "5199e9e912f5f88ac3a953857b4fc128"
+  },
+  "src/site.js": {
+    "mtime": 1795214398.3822272,
+    "seen": 1795546692.162713,
+    "ast_hash": "786f8025c53f940dbf22df707bb253db",
+    "semantic_hash": "786f8025c53f940dbf22df707bb253db"
+  },
+  "README.md": {
+    "mtime": 1794436323.5966375,
+    "seen": 1795546692.1627145,
+    "ast_hash": "60a5563273eead644b1ccb1fe6245ad7",
+    "semantic_hash": "60a5563273eead644b1ccb1fe6245ad7"
+  },
+  "content/blog/ar/afdal-sabbora-bayda-majjania-2026.md": {
+    "mtime": 1795466279.1950147,
+    "seen": 1795546692.1627157,
+    "ast_hash": "64cae398287d3cfe7e7a55c19edac722",
+    "semantic_hash": "64cae398287d3cfe7e7a55c19edac722"
+  },
+  "content/blog/ar/afkar-asf-dihni-sabbora.md": {
+    "mtime": 1795465160.0749805,
+    "seen": 1795546692.162717,
+    "ast_hash": "a1bf441915748500efb4dcc090779fb3",
+    "semantic_hash": "a1bf441915748500efb4dcc090779fb3"
+  },
+  "content/blog/ar/awraq-lasiqa-murajaa-tajmi-taqarub.md": {
+    "mtime": 1795466698.808602,
+    "seen": 1795546692.162719,
+    "ast_hash": "2949ec1012c1145cbfb8b50714763004",
+    "semantic_hash": "2949ec1012c1145cbfb8b50714763004"
+  },
+  "content/blog/ar/kayfa-tarsum-kharita-dihniya-online.md": {
+    "mtime": 1795466625.583257,
+    "seen": 1795546692.16272,
+    "ast_hash": "350e197b20f88a4f270044c1cf3dbb2a",
+    "semantic_hash": "350e197b20f88a4f270044c1cf3dbb2a"
+  },
+  "content/blog/ar/kayfa-tarsum-mukhattat-insiyabi-online.md": {
+    "mtime": 1795466836.2661605,
+    "seen": 1795546692.162721,
+    "ast_hash": "64063cf7131316312083de51a7afa1ed",
+    "semantic_hash": "64063cf7131316312083de51a7afa1ed"
+  },
+  "content/blog/ar/lawhat-kanban-takhtit-almashari.md": {
+    "mtime": 1795466979.9438572,
+    "seen": 1795546692.162722,
+    "ast_hash": "8aeab37eb2c5ed27b86f7b3fbcaf42fb",
+    "semantic_hash": "8aeab37eb2c5ed27b86f7b3fbcaf42fb"
+  },
+  "content/blog/ar/ma-hiya-sabbora-raqmiya.md": {
+    "mtime": 1795466347.4509673,
+    "seen": 1795546692.1627233,
+    "ast_hash": "82e93401bdbcff0fb5fb101d256d3652",
+    "semantic_hash": "82e93401bdbcff0fb5fb101d256d3652"
+  },
+  "content/blog/ar/sabbora-bayda-online-lil-tadris.md": {
+    "mtime": 1795465077.5483377,
+    "seen": 1795546692.162725,
+    "ast_hash": "91d75187fa5bd2b18a5feaa642bb0071",
+    "semantic_hash": "91d75187fa5bd2b18a5feaa642bb0071"
+  },
+  "content/blog/ar/sabbora-lil-atfal-anshita.md": {
+    "mtime": 1795466416.4012542,
+    "seen": 1795546692.162726,
+    "ast_hash": "6c045a558e9a92baaeedc452737573e8",
+    "semantic_hash": "6c045a558e9a92baaeedc452737573e8"
+  },
+  "content/blog/ar/sabbora-moukalama-video-zoom-meet-teams.md": {
+    "mtime": 1795466486.2342577,
+    "seen": 1795546692.1627269,
+    "ast_hash": "f4ed84239e758650c45ccd2b5ca6f7c3",
+    "semantic_hash": "f4ed84239e758650c45ccd2b5ca6f7c3"
+  },
+  "content/blog/ar/sabbora-online-lil-dourous-alkhousousiya.md": {
+    "mtime": 1795466765.2515323,
+    "seen": 1795546692.1627278,
+    "ast_hash": "ca50f1eb096fa5c5239e3d4428d9278e",
+    "semantic_hash": "ca50f1eb096fa5c5239e3d4428d9278e"
+  },
+  "content/blog/ar/sabbora-online-vs-miro-vs-mural.md": {
+    "mtime": 1795466126.5300207,
+    "seen": 1795546692.162729,
+    "ast_hash": "318c5b40752d3c0bd00ca934e3710d07",
+    "semantic_hash": "318c5b40752d3c0bd00ca934e3710d07"
+  },
+  "content/blog/ar/sabbora-tafaouliya-jihaz-ard-tv-qism.md": {
+    "mtime": 1795466907.9195046,
+    "seen": 1795546692.16273,
+    "ast_hash": "71ffc8dcdc4c9b31e065d3e2e651b06e",
+    "semantic_hash": "71ffc8dcdc4c9b31e065d3e2e651b06e"
+  },
+  "content/blog/ar/tadris-riyadiyat-sabbora-online.md": {
+    "mtime": 1795466198.6645668,
+    "seen": 1795546692.162731,
+    "ast_hash": "eea7794843dd44d4029f5281754cc5af",
+    "semantic_hash": "eea7794843dd44d4029f5281754cc5af"
+  },
+  "content/blog/ar/turuq-almurajaa-bil-sabbora.md": {
+    "mtime": 1795466557.235178,
+    "seen": 1795546692.1627328,
+    "ast_hash": "b0e9c8bfa22f8ab149dc8a29594bd95f",
+    "semantic_hash": "b0e9c8bfa22f8ab149dc8a29594bd95f"
+  },
+  "content/blog/en/best-free-online-whiteboard-tools-2026.md": {
+    "mtime": 1795464991.6099422,
+    "seen": 1795546692.1627338,
+    "ast_hash": "e32a547f45364cb9a80289db76a0acc5",
+    "semantic_hash": "e32a547f45364cb9a80289db76a0acc5"
+  },
+  "content/blog/en/creative-whiteboard-brainstorming-ideas.md": {
+    "mtime": 1795464991.6181328,
+    "seen": 1795546692.1627347,
+    "ast_hash": "bdb92c092fe04b15479192da2ed878e0",
+    "semantic_hash": "bdb92c092fe04b15479192da2ed878e0"
+  },
+  "content/blog/en/how-to-draw-a-flowchart-online.md": {
+    "mtime": 1795464991.6221435,
+    "seen": 1795546692.162736,
+    "ast_hash": "b603e70d33ac59761cc3673b33726325",
+    "semantic_hash": "b603e70d33ac59761cc3673b33726325"
+  },
+  "content/blog/en/how-to-make-a-mind-map-online.md": {
+    "mtime": 1795464991.6250906,
+    "seen": 1795546692.1627374,
+    "ast_hash": "b3d2994bff6d783978eafe12a97812ec",
+    "semantic_hash": "b3d2994bff6d783978eafe12a97812ec"
+  },
+  "content/blog/en/how-to-use-online-whiteboard-for-teaching.md": {
+    "mtime": 1795464991.6289973,
+    "seen": 1795546692.1627383,
+    "ast_hash": "51cf8e3443e39d19c9e17f7b50a5ffaf",
+    "semantic_hash": "51cf8e3443e39d19c9e17f7b50a5ffaf"
+  },
+  "content/blog/en/interactive-whiteboard-classroom-projector-tv.md": {
+    "mtime": 1795464991.6331754,
+    "seen": 1795546692.1627395,
+    "ast_hash": "e9fdf75c16816672e40afa3805b34784",
+    "semantic_hash": "e9fdf75c16816672e40afa3805b34784"
+  },
+  "content/blog/en/kanban-board-project-planning-whiteboard.md": {
+    "mtime": 1795464991.6378355,
+    "seen": 1795546692.1627405,
+    "ast_hash": "3b7be2959b3d73c01b45ab62034dacd3",
+    "semantic_hash": "3b7be2959b3d73c01b45ab62034dacd3"
+  },
+  "content/blog/en/online-whiteboard-for-tutoring.md": {
+    "mtime": 1795464991.6460273,
+    "seen": 1795546692.1627417,
+    "ast_hash": "b77345826db06eafb269c918d272f998",
+    "semantic_hash": "b77345826db06eafb269c918d272f998"
+  },
+  "content/blog/en/sitewhiteboard-vs-miro-vs-mural.md": {
+    "mtime": 1795464991.6500268,
+    "seen": 1795546692.1627429,
+    "ast_hash": "2422fcc604dae280f92abc5fcde79b14",
+    "semantic_hash": "2422fcc604dae280f92abc5fcde79b14"
+  },
+  "content/blog/en/sticky-notes-retrospective-affinity-mapping.md": {
+    "mtime": 1795464991.6542988,
+    "seen": 1795546692.162744,
+    "ast_hash": "1f6249ac96fd8cfe267075cc3a94b6f6",
+    "semantic_hash": "1f6249ac96fd8cfe267075cc3a94b6f6"
+  },
+  "content/blog/en/study-techniques-whiteboard.md": {
+    "mtime": 1795464991.6587024,
+    "seen": 1795546692.162745,
+    "ast_hash": "c15aa9bcfb92700c2bdf1d2130ff1da5",
+    "semantic_hash": "c15aa9bcfb92700c2bdf1d2130ff1da5"
+  },
+  "content/blog/en/teach-math-with-online-whiteboard.md": {
+    "mtime": 1795464991.6617022,
+    "seen": 1795546692.1627464,
+    "ast_hash": "1ba4479a3fcc8f3f0df3ff1327bd09b4",
+    "semantic_hash": "1ba4479a3fcc8f3f0df3ff1327bd09b4"
+  },
+  "content/blog/en/what-is-a-digital-whiteboard.md": {
+    "mtime": 1795464991.6667378,
+    "seen": 1795546692.1627474,
+    "ast_hash": "6293436a20de7f1f71f3f7fe073c0ee5",
+    "semantic_hash": "6293436a20de7f1f71f3f7fe073c0ee5"
+  },
+  "content/blog/en/whiteboard-for-kids-activities.md": {
+    "mtime": 1795464991.6717792,
+    "seen": 1795546692.1627483,
+    "ast_hash": "b2d535e2421f555a241270949d5c4392",
+    "semantic_hash": "b2d535e2421f555a241270949d5c4392"
+  },
+  "content/blog/en/whiteboard-on-screen-video-calls.md": {
+    "mtime": 1795464991.6763136,
+    "seen": 1795546692.1627495,
+    "ast_hash": "0575086a95f873ae55c4535f49cf0fc4",
+    "semantic_hash": "0575086a95f873ae55c4535f49cf0fc4"
+  },
+  "content/blog/fr/comment-dessiner-un-logigramme-en-ligne.md": {
+    "mtime": 1795466796.3695912,
+    "seen": 1795546692.1627507,
+    "ast_hash": "c1522c719e3bf88a76173cef9ace89ac",
+    "semantic_hash": "c1522c719e3bf88a76173cef9ace89ac"
+  },
+  "content/blog/fr/comment-faire-une-carte-mentale-en-ligne.md": {
+    "mtime": 1795466588.405428,
+    "seen": 1795546692.162752,
+    "ast_hash": "1a2b9491e09f3b0f84212c4e009ebd68",
+    "semantic_hash": "1a2b9491e09f3b0f84212c4e009ebd68"
+  },
+  "content/blog/fr/enseigner-les-maths-tableau-blanc-en-ligne.md": {
+    "mtime": 1795466159.4092329,
+    "seen": 1795546692.1627533,
+    "ast_hash": "fe13ef1dd8d4d0d7a2ba9b27348c0580",
+    "semantic_hash": "fe13ef1dd8d4d0d7a2ba9b27348c0580"
+  },
+  "content/blog/fr/idees-creatives-remue-meninges-tableau-blanc.md": {
+    "mtime": 1795465117.8591635,
+    "seen": 1795546692.1627543,
+    "ast_hash": "eb6c674a7f968e16c421e9b3dfb7dfdc",
+    "semantic_hash": "eb6c674a7f968e16c421e9b3dfb7dfdc"
+  },
+  "content/blog/fr/meilleurs-tableaux-blancs-en-ligne-gratuits-2026.md": {
+    "mtime": 1795466240.310236,
+    "seen": 1795546692.1627553,
+    "ast_hash": "21cea24b58b6dbc68b37156c3b914c8f",
+    "semantic_hash": "21cea24b58b6dbc68b37156c3b914c8f"
+  },
+  "content/blog/fr/post-it-retrospective-carte-affinites.md": {
+    "mtime": 1795466658.7017803,
+    "seen": 1795546692.1627564,
+    "ast_hash": "06da5b4beca1346ef579d35225986b15",
+    "semantic_hash": "06da5b4beca1346ef579d35225986b15"
+  },
+  "content/blog/fr/qu-est-ce-qu-un-tableau-blanc-numerique.md": {
+    "mtime": 1795466311.3465097,
+    "seen": 1795546692.1627574,
+    "ast_hash": "72d4c83cafb34b626f78661368cea32c",
+    "semantic_hash": "72d4c83cafb34b626f78661368cea32c"
+  },
+  "content/blog/fr/tableau-blanc-en-ligne-pour-cours-particuliers.md": {
+    "mtime": 1795466729.10407,
+    "seen": 1795546692.1627586,
+    "ast_hash": "fd143160161a6901cd75486a507cd09f",
+    "semantic_hash": "fd143160161a6901cd75486a507cd09f"
+  },
+  "content/blog/fr/tableau-blanc-en-ligne-pour-enseigner.md": {
+    "mtime": 1795465033.2053058,
+    "seen": 1795546692.1627598,
+    "ast_hash": "ace1faef869dbf51fe5ca34a2eff736a",
+    "semantic_hash": "ace1faef869dbf51fe5ca34a2eff736a"
+  },
+  "content/blog/fr/tableau-blanc-partage-ecran-visio.md": {
+    "mtime": 1795466451.3706412,
+    "seen": 1795546692.1627614,
+    "ast_hash": "8b69767206f742b1612f4a4e962d0fde",
+    "semantic_hash": "8b69767206f742b1612f4a4e962d0fde"
+  },
+  "content/blog/fr/tableau-blanc-pour-enfants-activites.md": {
+    "mtime": 1795466379.5256164,
+    "seen": 1795546692.1627624,
+    "ast_hash": "e6296dc2c1daa9ec2dd36d1c030c3d42",
+    "semantic_hash": "e6296dc2c1daa9ec2dd36d1c030c3d42"
+  },
+  "content/blog/fr/tableau-blanc-vs-miro-vs-mural.md": {
+    "mtime": 1795465195.1724632,
+    "seen": 1795546692.1627636,
+    "ast_hash": "6a1391212a779b20bc2933a3a367663f",
+    "semantic_hash": "6a1391212a779b20bc2933a3a367663f"
+  },
+  "content/blog/fr/tableau-interactif-videoprojecteur-tv-classe.md": {
+    "mtime": 1795466870.3073392,
+    "seen": 1795546692.1627648,
+    "ast_hash": "6fea3ceebe35e6d9691e96a4cb9315c1",
+    "semantic_hash": "6fea3ceebe35e6d9691e96a4cb9315c1"
+  },
+  "content/blog/fr/tableau-kanban-planification-projet.md": {
+    "mtime": 1795466940.5541239,
+    "seen": 1795546692.162766,
+    "ast_hash": "c9f1bb8abc922928b07e8af0886e3135",
+    "semantic_hash": "c9f1bb8abc922928b07e8af0886e3135"
+  },
+  "content/blog/fr/techniques-de-revision-tableau-blanc.md": {
+    "mtime": 1795466519.5947523,
+    "seen": 1795546692.1627672,
+    "ast_hash": "13465945e927ee060684699b0b66c907",
+    "semantic_hash": "13465945e927ee060684699b0b66c907"
+  },
+  "src/app.html": {
+    "mtime": 1794691303.8012288,
+    "seen": 1795546692.1627684,
+    "ast_hash": "67b1e26e84fefe3d3c04e61692920bd5",
+    "semantic_hash": "67b1e26e84fefe3d3c04e61692920bd5"
+  },
+  "src/icon.svg": {
+    "mtime": 1794411461.0,
+    "seen": 1795546692.1627693,
+    "ast_hash": "7676fcd921497fa407ddc782852045f1",
+    "semantic_hash": "7676fcd921497fa407ddc782852045f1"
+  }
+}
