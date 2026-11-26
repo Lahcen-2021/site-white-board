@@ -36,6 +36,7 @@ L = {
          ("Draw, write and connect", "Sketch with markers, add notes and shapes, link them with arrows."),
          ("Export the image", "Download a PNG and send it wherever you need it.")],
   price_h="Free, with a Pro plan when you need more",
+  price_h_free="Free to use",
   free="Free", free_list=["Up to {n} boards", "Every drawing tool", "PNG export", "Ads on the site pages"],
   pro="Pro", pro_list=["Unlimited boards", "No ads anywhere on the site", "Sharper exports without the SiteWhiteboard mark", "Back up and restore your boards as a file"],
   buy="Get Pro", soon="Pro is not on sale yet.", active="Pro is active in this browser.",
@@ -86,6 +87,7 @@ L = {
          ("Dessinez, écrivez, reliez", "Esquissez au marqueur, ajoutez des post-it et des formes, reliez-les par des flèches."),
          ("Exportez l’image", "Téléchargez un PNG et envoyez-le où vous voulez.")],
   price_h="Gratuit, avec une offre Pro si vous en voulez plus",
+  price_h_free="Gratuit à l’usage",
   free="Gratuit", free_list=["Jusqu’à {n} tableaux", "Tous les outils de dessin", "Export en PNG", "Publicités sur les pages du site"],
   pro="Pro", pro_list=["Tableaux illimités", "Aucune publicité sur le site", "Exports plus nets, sans la mention SiteWhiteboard", "Sauvegarde et restauration de vos tableaux dans un fichier"],
   buy="Obtenir Pro", soon="Pro n’est pas encore en vente.", active="Pro est actif dans ce navigateur.",
@@ -136,6 +138,7 @@ L = {
          ("ارسم واكتب واربط", "ارسم بالأقلام، أضف أوراقًا وأشكالًا، واربط بينها بالأسهم."),
          ("صدّر الصورة", "نزّل صورة PNG وأرسلها حيث تشاء.")],
   price_h="مجانية، مع خطة Pro عند الحاجة إلى المزيد",
+  price_h_free="مجانية الاستعمال",
   free="مجانية", free_list=["حتى {n} لوحات", "كل أدوات الرسم", "تصدير بصيغة PNG", "إعلانات في صفحات الموقع"],
   pro="Pro", pro_list=["لوحات غير محدودة", "بدون إعلانات في الموقع", "تصدير أوضح بدون علامة SiteWhiteboard", "نسخ احتياطي واستعادة للوحاتك في ملف"],
   buy="احصل على Pro", soon="Pro غير متاح للبيع بعد.", active="Pro مفعّل في هذا المتصفح.",
@@ -538,6 +541,11 @@ def landing(a, lang):
     steps = "".join(f"<li><h3>{e(t)}</h3><p>{e(p)}</p></li>" for t, p in d["steps"])
     fl = "".join(f"<li>{e(x.replace('{n}', str(a.free)))}</li>" for x in d["free_list"])
     pl = "".join(f"<li>{e(x)}</li>" for x in d["pro_list"])
+    # No checkout provider yet: show the free plan alone instead of a Pro card with an empty price.
+    pro_card = (f'<div class="plan pro"><h3>{e(d["pro"])}</h3><span class="price" id="price"></span><ul>{pl}</ul>'
+                f'<a class="cta" id="buy" target="_blank" rel="noopener" hidden>{e(d["buy"])}</a>'
+                f'<p id="soon" hidden>{e(d["soon"])}</p><p id="proActive" hidden>{e(d["active"])}</p></div>') if a.checkout else ""
+    price_head = d["price_h"] if a.checkout else d["price_h_free"]
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(r)}</p></details>" for q, r in d["faq"])
     what = "".join(f"<p>{e(p)}</p>" for p in d["what"])
     who = "".join(f'<li style="--c:var(--m-{c})"><h3>{e(t)}</h3><p>{e(p)}</p></li>' for (t, p), c in zip(d["who"], ["blue", "green", "amber"]))
@@ -586,11 +594,10 @@ def landing(a, lang):
   <a class="cta center" href="{board(lang)}">{e(d['open'])}{ARROW}</a>
 </div></section>
 {ad(lang, 'middle')}<section id="pricing" class="band"><div class="wrap">
-  <h2>{e(d['price_h'])}</h2>
-  <div class="plans">
+  <h2>{e(price_head)}</h2>
+  <div class="plans{'' if pro_card else ' solo'}">
     <div class="plan"><h3>{e(d['free'])}</h3><ul>{fl}</ul><a class="cta ghost" href="{board(lang)}">{e(d['open'])}</a></div>
-    <div class="plan pro"><h3>{e(d['pro'])}</h3><span class="price" id="price"></span><ul>{pl}</ul>
-      <a class="cta" id="buy" target="_blank" rel="noopener" hidden>{e(d['buy'])}</a><p id="soon" hidden>{e(d['soon'])}</p><p id="proActive" hidden>{e(d['active'])}</p></div>
+    {pro_card}
   </div>
 </div></section>
 <section id="faq"><div class="wrap">
