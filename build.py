@@ -484,6 +484,9 @@ def head(a, lang, page, title, desc, path=None, og="website", extra="", alt_path
     else:
         alts = "".join(f'<link rel="alternate" hreflang="{x}" href="{a.domain}{url(x, page)}">' for x in LANGS)
         alts += f'<link rel="alternate" hreflang="x-default" href="{a.domain}{url("en", page)}">\n'
+    # Pinterest reads this to confirm the domain is ours. It checks the home page,
+    # but the tag costs nothing on the rest and works whichever page it fetches.
+    verify = f'\n<meta name="p:domain_verify" content="{e(a.pinterest)}">' if getattr(a, "pinterest", "") else ""
     return f"""<!doctype html>
 <html lang="{lang}" dir="{'rtl' if lang == 'ar' else 'ltr'}">
 <head>
@@ -493,7 +496,7 @@ def head(a, lang, page, title, desc, path=None, og="website", extra="", alt_path
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{a.domain}{canon}">
 {alts}<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#1f5fd1">
+<meta name="theme-color" content="#1f5fd1">{verify}
 <meta property="og:site_name" content="SiteWhiteboard"><meta property="og:locale" content="{LOCALE[lang]}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="{og}"><meta property="og:url" content="{a.domain}{canon}">{extra}
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}">
@@ -936,6 +939,8 @@ def main():
     ap.add_argument("--validate", default="", help="licence check endpoint (POST license_key, answers JSON with valid:true)")
     ap.add_argument("--price", default="")
     ap.add_argument("--free", type=int, default=3, help="boards on the free plan")
+    ap.add_argument("--pinterest", default="e997d8f6ed03db332fb2cfea8dcee051",
+                    help="Pinterest p:domain_verify token for claiming the site")
     a = ap.parse_args()
     a.domain = a.domain.rstrip("/")
     if not a.email:
