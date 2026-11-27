@@ -446,12 +446,27 @@ def board(lang):
 
 
 def url(lang, page):
-    return prefix(lang) + ("/" if page == "index" else "/" + page + ".html")
+    """Clean addresses: /, /about/, /privacy/. The old .html links still work
+    through the redirect stubs written in main()."""
+    return prefix(lang) + ("/" if page == "index" else "/" + page + "/")
 
 
 def blog_url(lang, slug=None):
     """/blog/, /fr/blog/, /ar/blog/ and the posts under them."""
     return prefix(lang) + "/blog/" + (slug + "/" if slug else "")
+
+
+def redirect_stub(target):
+    """Page left at an old address that forwards to the new one.
+
+    nginx serves static files, so there is no 301 to configure here. The
+    canonical tag is what tells Google which address to keep, and noindex keeps
+    the stub itself out of the results."""
+    return (f'<!doctype html><html><head><meta charset="utf-8">'
+            f'<meta name="robots" content="noindex">'
+            f'<link rel="canonical" href="{target}">'
+            f'<meta http-equiv="refresh" content="0;url={target}">'
+            f'</head><body><a href="{target}">{target}</a></body></html>\n')
 
 
 def head(a, lang, page, title, desc, path=None, og="website", extra="", alt_paths=None):
@@ -967,7 +982,15 @@ def main():
                  "privacy": doc(a, lang, "privacy", d["privacy_t"], sections(a, lang, d["privacy_s"])),
                  "terms": doc(a, lang, "terms", d["terms_t"], sections(a, lang, d["terms_s"]))}
         for name, text in pages.items():
-            (base / (name + ".html")).write_text(text, encoding="utf8")
+            if name == "index":
+                (base / "index.html").write_text(text, encoding="utf8")
+            else:
+                (base / name).mkdir(exist_ok=True)
+                (base / name / "index.html").write_text(text, encoding="utf8")
+                # Google has the old .html address indexed, so keep it working and
+                # point it at the new one. Left out of the sitemap on purpose.
+                (base / (name + ".html")).write_text(
+                    redirect_stub(a.domain + url(lang, name)), encoding="utf8")
             urls.append(a.domain + url(lang, name))
     # blog: /blog/, /fr/blog/, /ar/blog/ and the posts under each
     blog = {x: load_posts(x) for x in LANGS}

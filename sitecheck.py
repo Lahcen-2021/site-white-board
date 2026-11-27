@@ -39,11 +39,14 @@ SITE = "https://www.sitewhiteboard.com"
 UA = "SiteWhiteboard-Monitor/1.0 (+https://www.sitewhiteboard.com)"
 TIMEOUT = 20
 
-# Paths that must work. These are the real served paths: the legal pages are
-# .html files, NOT directories. Getting this list wrong is what caused the
-# false "ads.txt missing" and "duplicate description" alarms.
+# Paths that must work. Verify this list against the built dist/ whenever the
+# URL scheme changes: asking for an address the site does not serve is what
+# produced a week of false "page missing" alarms.
 PAGES = ["/", "/fr/", "/ar/", "/board/", "/blog/", "/fr/blog/", "/ar/blog/"]
-DOCS = ["/about.html", "/contact.html", "/privacy.html", "/terms.html"]
+DOCS = ["/about/", "/contact/", "/privacy/", "/terms/"]
+# Old addresses kept as forwarding stubs. They must keep answering, because
+# Google indexed them, but they are deliberately absent from the sitemap.
+LEGACY = ["/about.html", "/contact.html", "/privacy.html", "/terms.html"]
 FILES = ["/ads.txt", "/robots.txt", "/sitemap.xml"]
 CRITICAL = {"/", "/board/"}          # down = wake someone up
 SLOW_MS = 1500                       # total time over this is a warning
@@ -313,6 +316,16 @@ def check_monetization():
             log("ok", "adsense", f"{p} -> 200")
         else:
             log("warn", "adsense", f"{p} -> {st}, AdSense wants these pages reachable")
+
+    # The old .html addresses must keep forwarding, or indexed links 404.
+    for p in LEGACY:
+        st, _, body, _ = fetch(p)
+        if st != 200:
+            log("warn", "legacy", f"{p} -> {st}, an indexed URL is now broken")
+        elif "canonical" in text(body) and "noindex" in text(body):
+            log("ok", "legacy", f"{p} forwards to the clean URL")
+        else:
+            log("warn", "legacy", f"{p} returns 200 but is not a redirect stub")
 
     st, _, body, _ = fetch("/ads.txt")
     if st != 200:
